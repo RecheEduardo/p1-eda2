@@ -2,3 +2,5 @@
 void exibeMenu_temp();
 
 void exibeMenu();
+
+void selecionarTamanho(int opcaoTam);

@@ -84,3 +84,42 @@ void exibeMenu(){
         printf("\tOPCAO 12 - SAIR\n\n");
         printf("\t========================================\n\n");
 }
+
+void selecionarTamanho(int opcaoTam){
+        printf("\t========================================\n\n");
+        printf("\t1 - 10.000    ELEMENTOS\n\n");
+        printf("\t2 - 50.000    ELEMENTOS\n\n");
+        printf("\t3 - 100.000   ELEMENTOS\n\n");
+        printf("\t4 - 200.000   ELEMENTOS\n\n");
+        printf("\t5 - 500.000   ELEMENTOS\n\n");
+        printf("\t6 - 1.000.000 ELEMENTOS\n\n");
+        printf("\t7 - VOLTAR AO MENU PRINCIPAL\n\n");
+        printf("\t========================================\n\n");
+
+        printf("\tEscolha uma opcao: ");
+        scanf("%d", &opcaoTam);
+
+        switch (opcaoTam) {
+                case 1:     
+                        printf("\n\tOpcao 1\n\n");
+                        break;
+                case 2:
+                        printf("\n\tOpcao 2\n\n");
+                        break;
+                case 3:
+                        printf("\n\tOpcao 3\n\n");
+                        break;
+                case 4:
+                        printf("\n\tOpcao 4\n\n");
+                        break;
+                case 5:
+                        printf("\n\tOpcao 5\n\n");
+                        break;
+                case 6:
+                        printf("\n\tOpcao 6\n\n");
+                        break;
+                case 7:
+                        printf("\n\tOpcao 7\n\n");
+                        break;
+        } while (opcaoTam != 12);
+}

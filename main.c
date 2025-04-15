@@ -4,59 +4,70 @@
 
 int main()
 {
-    int opcao;
+    int opcaoAlg, opcaoTam;
     
     printf("\n\t--------- TESTE DE ALGORITIMOS ---------\n\n");
     do {
 
         exibeMenu();
         printf("\tEscolha uma opcao: ");
-        scanf("%d", &opcao);
+        scanf("%d", &opcaoAlg);
         getchar();
 
-        switch (opcao) {
+        switch (opcaoAlg) {
             case 1:
                     system("cls");
+                    selecionarTamanho(opcaoAlg);
                     printf("\n\t========================================\n\n");
             break;
             case 2:
                     system("cls");
+                    selecionarTamanho(opcaoAlg);
                     printf("\n\t========================================\n\n");
                 break;
             case 3:
                     system("cls");
+                    selecionarTamanho(opcaoAlg);
                     printf("\n\t========================================\n\n");
                 break;
             case 4:
                     system("cls");
+                    selecionarTamanho(opcaoAlg);
                     printf("\n\t========================================\n\n");
                 break;
             case 5:
                     system("cls");
+                    selecionarTamanho(opcaoAlg);
                     printf("\n\t========================================\n\n");
                 break;
             case 6:
                     system("cls");
+                    selecionarTamanho(opcaoAlg);
                     printf("\n\t========================================\n\n");
                 break;
             case 7:
                     system("cls");
+                    selecionarTamanho(opcaoAlg);
                     printf("\n\t========================================\n\n");
                 break;
             case 8:
                     system("cls");
+                    selecionarTamanho(opcaoAlg);
                     printf("\n\t========================================\n\n");
                 break;
             case 9:
                     system("cls");
+                    selecionarTamanho(opcaoAlg);
                     printf("\n\t========================================\n\n");
                 break;
             case 10:
                     system("cls");
+                    selecionarTamanho(opcaoAlg);
                     printf("\n\t========================================\n\n");
                 break;
             case 11:
                     system("cls");
+                    selecionarTamanho(opcaoAlg);
                     printf("\n\t========================================\n\n");
                 break;
             case 12:
@@ -67,7 +78,7 @@ int main()
                 printf("\n\n\n\tOpcao Invalida!\n\n");
         }
 
-    } while (opcao != 12);
+    } while (opcaoAlg != 12);
 
     exibeMenu();
     return 0;
