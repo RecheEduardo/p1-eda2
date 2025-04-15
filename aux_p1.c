@@ -86,6 +86,7 @@ void exibeMenu(){
 }
 
 void selecionarTamanho(int opcaoTam){
+        printf("\n\t- SELECIONE O TAMANHO DO VETOR A SER TESTADO -\n\n");
         printf("\t========================================\n\n");
         printf("\t1 - 10.000    ELEMENTOS\n\n");
         printf("\t2 - 50.000    ELEMENTOS\n\n");
@@ -100,7 +101,7 @@ void selecionarTamanho(int opcaoTam){
         scanf("%d", &opcaoTam);
 
         switch (opcaoTam) {
-                case 1:     
+                case 1:
                         printf("\n\tOpcao 1\n\n");
                         break;
                 case 2:
