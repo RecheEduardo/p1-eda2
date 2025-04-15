@@ -81,5 +81,6 @@ void exibeMenu(){
         printf("\tOPCAO 9 -  RADIX SORT\n\n");
         printf("\tOPCAO 10 - COUNTING SORT\n\n");
         printf("\tOPCAO 11 - TIM SORT\n\n");
+        printf("\tOPCAO 12 - SAIR\n\n");
         printf("\t========================================\n\n");
 }

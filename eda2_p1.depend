@@ -1,5 +1,9 @@
 # depslib dependency file v1.0
-1744755462 source:c:\users\aluno\desktop\projeto_eda2\eda2_p1\aux_p1.c
+1744757290 source:c:\users\aluno\desktop\projeto_eda2\eda2_p1\aux_p1.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<conio.h>
 
 1744755479 source:c:\users\aluno\desktop\projeto_eda2\eda2_p1\main.c
 	<stdio.h>
