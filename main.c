@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "aux_p1.h"
 
 int main()
 {
-    printf("Hello world!\n");
+    exibeMenu();
     return 0;
 }
