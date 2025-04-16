@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="aux_p1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="aux_p1.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
