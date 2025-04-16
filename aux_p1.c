@@ -83,8 +83,6 @@ int menuPrincipal(){
 
 // SUBMENU PARA O TAMANHO DA LISTA
 unsigned long int menuTamanho(){
-
-
     char inputUser;
     int row = 0;
     char selection[7];
