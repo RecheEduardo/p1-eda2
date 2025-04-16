@@ -12,3 +12,21 @@
 
 1744758967 c:\users\aluno\desktop\projeto_eda2\eda2_p1\aux_p1.h
 
+1744781205 source:z:\my drive\projetos\p1-eda2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<conio.h>
+	<time.h>
+	"aux_p1.h"
+
+1744781886 z:\my drive\projetos\p1-eda2\aux_p1.h
+
+1744781630 source:z:\my drive\projetos\p1-eda2\aux_p1.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<conio.h>
+	<time.h>
+
