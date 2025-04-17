@@ -12,21 +12,78 @@
 
 1744758967 c:\users\aluno\desktop\projeto_eda2\eda2_p1\aux_p1.h
 
-1744781205 source:z:\my drive\projetos\p1-eda2\main.c
+1744862966 source:z:\my drive\projetos\p1-eda2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	<conio.h>
 	<time.h>
 	"aux_p1.h"
+	"radixSort.h"
+	"quickSort.h"
+	"shellSort.h"
+	"bucketSort.h"
+	"countingSort.h"
+	"heapSort.h"
+	"mergeSort.h"
 
-1744781886 z:\my drive\projetos\p1-eda2\aux_p1.h
+1744783582 z:\my drive\projetos\p1-eda2\aux_p1.h
 
-1744781630 source:z:\my drive\projetos\p1-eda2\aux_p1.c
+1744783753 source:z:\my drive\projetos\p1-eda2\aux_p1.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	<time.h>
 	<conio.h>
 	<time.h>
+
+1744860869 source:z:\my drive\projetos\p1-eda2\radixsorte.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	"radixSort.h"
+
+1744860891 z:\my drive\projetos\p1-eda2\radixsort.h
+
+1744862755 source:z:\my drive\projetos\p1-eda2\quicksort.c
+	<stdio.h>
+	<stdlib.h>
+	"quickSort.h"
+
+1744860968 z:\my drive\projetos\p1-eda2\quicksort.h
+
+1744862747 source:z:\my drive\projetos\p1-eda2\shellsort.c
+	<stdio.h>
+	<stdlib.h>
+	"shellSort.h"
+
+1744862731 z:\my drive\projetos\p1-eda2\shellsort.h
+
+1744862763 source:z:\my drive\projetos\p1-eda2\bucketsort.c
+	<stdio.h>
+	<stdlib.h>
+	"bucketSort.h"
+
+1744862735 z:\my drive\projetos\p1-eda2\bucketsort.h
+
+1744862432 source:z:\my drive\projetos\p1-eda2\countingsort.c
+	<stdio.h>
+	<stdlib.h>
+	"countingSort.h"
+
+1744862722 z:\my drive\projetos\p1-eda2\countingsort.h
+
+1744862711 source:z:\my drive\projetos\p1-eda2\heapsort.c
+	<stdio.h>
+	"heapSort.h"
+
+1744862687 z:\my drive\projetos\p1-eda2\heapsort.h
+
+1744862976 z:\my drive\projetos\p1-eda2\mergesort.h
+
+1744863009 source:z:\my drive\projetos\p1-eda2\mergesort.c
+	<stdio.h>
+	<stdlib.h>
+	"mergeSort.h"
 
