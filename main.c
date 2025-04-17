@@ -5,6 +5,17 @@
 #include <time.h>
 #include "aux_p1.h"
 
+// ALGORITMOS DE ORDENAÇÂO
+#include "radixSort.h"
+#include "quickSort.h"
+#include "shellSort.h"
+#include "bucketSort.h"
+#include "countingSort.h"
+#include "heapSort.h"
+#include "mergeSort.h"
+#include "timSort.h"
+// Falta: Burble Sort, Inserction Sort, Selection Sort
+
 int main()
 {
     unsigned long int *lista;

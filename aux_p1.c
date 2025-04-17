@@ -73,9 +73,9 @@ int menuPrincipal(){
             break;
         }
 
-        else {
+        /*else {
             printf("Comando Inválido!");
-        }
+        }*/
     }while(1);
     algoritmo = (((row + 1) * 3) + (col + 1)) - 3;
     return algoritmo;
