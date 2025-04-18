@@ -8,7 +8,7 @@ int main()
 
     setlocale(LC_ALL, "");
     /*TESTE ########################*/
-    unsigned long int *lc, *ld, *la;
+    /*unsigned long int *lc, *ld, *la;
     unsigned long int tm = 15;
 
     lc = listaCrescente(tm);
@@ -23,7 +23,7 @@ int main()
     printf("\n\nLista Aleatória:");
     imprimirVetor(la, tm);
     printf("\n\n");
-    system("PAUSE");
+    system("PAUSE");*/
     /*##########################*/
     do{
         algoritmo = menuPrincipal();
