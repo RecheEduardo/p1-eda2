@@ -214,6 +214,13 @@ unsigned long int *listaAleatoria(unsigned long int tamanho){
 
     return lista;
 }
-//  nomeDoAlgoritmoTeste(unsigned long int *lista, unsigned long int tamanho){
-//      CÓDIGO...
-//  }
+unsigned long int insertionSort(unsigned long int *lista, unsigned long int tamanho){
+    int aux;
+    for(int i=1; i<tamanho; i++){
+        aux = lista[i];
+        for(j=i; (j>0) && (aux < v[j-1]); j--) {
+            v[j] = v[j-1];
+        }
+        v[j] = aux;
+    }
+}
