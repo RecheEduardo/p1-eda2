@@ -3,7 +3,7 @@
 #include <locale.h>
 #include <time.h>
 #include <conio.h> // Biblioteca para ler as teclas direcionais do teclado sem a necessidade do ENTER
-#include <time.h>
+#include <sys/time.h>
 
 // MENU PRINCIPAL INTERATIVO
 int menuPrincipal(){
@@ -214,8 +214,17 @@ unsigned long int *listaAleatoria(unsigned long int tamanho){
 
     return lista;
 }
-unsigned long int insertionSort(unsigned long int *lista, unsigned long int tamanho){
-    int aux;
+
+unsigned long double insertionSort(unsigned long int *lista, unsigned long int tamanho){
+    int aux, x;
+    struct timeval tempoInicial, tempoFinal;
+
+    x = gettimeofday(&tempoInicial, NULL); // Armazena o tempo em que a execução da ordenação começou
+    if(x == -1){
+        printf("\n-- Falha na coleta do tempo inicial de execução, abortando... --");
+        return -1;
+    }
+
     for(int i=1; i<tamanho; i++){
         aux = lista[i];
         for(j=i; (j>0) && (aux < v[j-1]); j--) {
@@ -223,4 +232,14 @@ unsigned long int insertionSort(unsigned long int *lista, unsigned long int tama
         }
         v[j] = aux;
     }
+
+    x = gettimeofday(&tempoFinal, NULL); // Armazena o tempo em que a execução da ordenação terminou
+    if(x == -1){
+        printf("\n-- Falha na coleta do tempo final de execução, abortando... --");
+        return -1;
+    }
+
+    return (tempoFinal.tv_sec + tempoFinal.tv_usec/1000000.0) - (tempoInicial.tv_sec + tempoInicial.tv_usec/1000000.0);
 }
+
+
