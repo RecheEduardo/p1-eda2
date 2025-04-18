@@ -242,4 +242,6 @@ unsigned long double insertionSort(unsigned long int *lista, unsigned long int t
     return (tempoFinal.tv_sec + tempoFinal.tv_usec/1000000.0) - (tempoInicial.tv_sec + tempoInicial.tv_usec/1000000.0);
 }
 
+void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
+}
