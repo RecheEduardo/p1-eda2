@@ -214,6 +214,13 @@ unsigned long int *listaAleatoria(unsigned long int tamanho){
 
     return lista;
 }
+
+void imprimirVetor(unsigned int *vetor, unsigned int tamanho){ // Rotina para teste
+    for(int i = 0; i < tamanho; i++){
+        printf(" %d", vetor[i]);
+    }
+}
+
 //  nomeDoAlgoritmoTeste(unsigned long int *lista, unsigned long int tamanho){
 //      CÓDIGO...
 //  }

@@ -9,4 +9,6 @@ unsigned long int *listaDecrescente(unsigned long int tamanho);
 
 unsigned long int *listaAleatoria(unsigned long int tamanho);
 
+void imprimirVetor(unsigned long int *vetor,unsigned long int tamanho); // Rotina para teste
+
 // nomeDoAlgoritmoTeste(unsigned long int *lista, unsigned long int tamanho);
