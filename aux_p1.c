@@ -21,12 +21,12 @@ int menuPrincipal(){
 
     do{
         system("cls"); // Limpa a tela
-        printf("\n######################## MENU #######################");
-        printf("\n%c BURBLE SORT   %c INSERTION SORT %c SELECTION SORT  ", selection[0][0], selection[0][1], selection[0][2]);
+        printf("\n===== ESCOLHA UM ALGORITMO PARA A BATERIA DE TESTES =====\n");
+        printf("\n%c BUBBLE SORT   %c INSERTION SORT %c SELECTION SORT  ", selection[0][0], selection[0][1], selection[0][2]);
         printf("\n%c SHELL SORT    %c MERGE SORT     %c QUICK SORT      ", selection[1][0], selection[1][1], selection[1][2]);
         printf("\n%c HEAP SORT     %c BUCKET SORT    %c RADIX SORT (LSD)", selection[2][0], selection[2][1], selection[2][2]);
         printf("\n%c COUNTING SORT %c TIM SORT       %c SAIR            ", selection[3][0], selection[3][1], selection[3][2]);
-        printf("\n#####################################################\n");
+        printf("\n\n#########################################################\n");
 
 
         // Ao clicar com as setas, envia 2 códigos, sendo o primeiro -32, e o segundo o código real
@@ -94,15 +94,15 @@ unsigned long int menuTamanho(){
 
     do{
         system("cls");
-        printf("\n###################### TAMANHO ######################");
-        printf("\n%c 10.000 ELEMENTOS", selection[0]);
-        printf("\n%c 50.000 ELEMENTOS", selection[1]);
-        printf("\n%c 100.000 ELEMENTOS", selection[2]);
-        printf("\n%c 200.000 ELEMENTOS", selection[3]);
-        printf("\n%c 500.000 ELEMENTOS", selection[4]);
-        printf("\n%c 1.000.000 ELEMENTOS", selection[5]);
-        printf("\n%c VOLTAR AO MENU PRINCIPAL", selection[6]);
-        printf("\n#####################################################\n");
+        printf("\n====== SELECIONE O TAMANHO DO VETOR DE TESTES ======\n");
+        printf("\n%c 10.000      ELEMENTOS", selection[0]);
+        printf("\n%c 50.000      ELEMENTOS", selection[1]);
+        printf("\n%c 100.000     ELEMENTOS", selection[2]);
+        printf("\n%c 200.000     ELEMENTOS", selection[3]);
+        printf("\n%c 500.000     ELEMENTOS", selection[4]);
+        printf("\n%c 1.000.000   ELEMENTOS", selection[5]);
+        printf("\n\n%c VOLTAR AO MENU PRINCIPAL", selection[6]);
+        printf("\n\n#####################################################\n");
 
         // Ao clicar com as setas, envia 2 códigos, sendo o primeiro -32, e o segundo o código real
         inputUser = getch(); // Captura o primeiro código
@@ -165,8 +165,8 @@ unsigned long int menuTamanho(){
     return -1; // O retorno acontece pelo switch, porém coloquei um aqui para o compilador não ficar dando Warning
 }
 
-unsigned long int *listaCrescente(unsigned long int tamanho){
-    unsigned long int *lista = malloc(tamanho * sizeof(unsigned int));
+unsigned long int *listaCrescente(unsigned long int *lista, unsigned long int tamanho){
+    lista = malloc(tamanho * sizeof(unsigned int));
 
     if (lista == NULL) {
         printf("Erro na alocação de memória!\n");
@@ -180,8 +180,8 @@ unsigned long int *listaCrescente(unsigned long int tamanho){
     return lista;
 }
 
-unsigned long int *listaDecrescente(unsigned long int tamanho){
-    unsigned long int *lista = malloc(tamanho * sizeof(unsigned int));
+unsigned long int *listaDecrescente(unsigned long int *lista, unsigned long int tamanho){
+    lista = malloc(tamanho * sizeof(unsigned int));
 
     if (lista == NULL) {
         printf("Erro na alocação de memória!\n");
@@ -195,14 +195,13 @@ unsigned long int *listaDecrescente(unsigned long int tamanho){
     return lista;
 }
 
-unsigned long int *listaAleatoria(unsigned long int tamanho){
-    unsigned long int *lista;
+unsigned long int *listaAleatoria(unsigned long int *lista, unsigned long int tamanho){
     unsigned long int tmp, j;
 
     srand((unsigned) time(NULL));
 
     // Cria primeiro uma lista crescente
-    lista = listaCrescente(tamanho);
+    lista = listaCrescente(lista, tamanho);
 
     // E agora embaralha a lista
     for(unsigned long int i = 0; i < tamanho; i++){
