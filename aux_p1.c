@@ -94,15 +94,15 @@ unsigned long int menuTamanho(){
 
     do{
         system("cls");
-        printf("\n###################### TAMANHO ######################");
-        printf("\n%c 10.000 ELEMENTOS", selection[0]);
-        printf("\n%c 50.000 ELEMENTOS", selection[1]);
-        printf("\n%c 100.000 ELEMENTOS", selection[2]);
-        printf("\n%c 200.000 ELEMENTOS", selection[3]);
-        printf("\n%c 500.000 ELEMENTOS", selection[4]);
-        printf("\n%c 1.000.000 ELEMENTOS", selection[5]);
-        printf("\n%c VOLTAR AO MENU PRINCIPAL", selection[6]);
-        printf("\n#####################################################\n");
+        printf("\n====== SELECIONE O TAMANHO DO VETOR DE TESTES ======\n");
+        printf("\n%c 10.000      ELEMENTOS", selection[0]);
+        printf("\n%c 50.000      ELEMENTOS", selection[1]);
+        printf("\n%c 100.000     ELEMENTOS", selection[2]);
+        printf("\n%c 200.000     ELEMENTOS", selection[3]);
+        printf("\n%c 500.000     ELEMENTOS", selection[4]);
+        printf("\n%c 1.000.000   ELEMENTOS", selection[5]);
+        printf("\n\n%c VOLTAR AO MENU PRINCIPAL", selection[6]);
+        printf("\n\n#####################################################\n");
 
         // Ao clicar com as setas, envia 2 códigos, sendo o primeiro -32, e o segundo o código real
         inputUser = getch(); // Captura o primeiro código
