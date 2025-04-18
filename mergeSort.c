@@ -1,6 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "mergeSort.h"
+#include "aux_p1.h"
+
 
 void mergesort(int *v, int inicio, int fim){
     int meio;

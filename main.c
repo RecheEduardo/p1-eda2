@@ -1,20 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <locale.h>
-#include <conio.h> // Biblioteca para ler as teclas direcionais do teclado sem a necessidade do ENTER
-#include <time.h>
 #include "aux_p1.h"
-
-// ALGORITMOS DE ORDENA��O
-#include "radixSort.h"
-#include "quickSort.h"
-#include "shellSort.h"
-#include "bucketSort.h"
-#include "countingSort.h"
-#include "heapSort.h"
-#include "mergeSort.h"
-#include "timSort.h"
-// Falta: Bubble Sort, Insertion Sort, Selection Sort
 
 int main()
 {

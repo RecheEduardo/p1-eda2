@@ -12,13 +12,16 @@
 
 1744758967 c:\users\aluno\desktop\projeto_eda2\eda2_p1\aux_p1.h
 
-1745011374 source:z:\my drive\projetos\p1-eda2\main.c
+1745017037 source:z:\my drive\projetos\p1-eda2\main.c
+	"aux_p1.h"
+
+1745017682 z:\my drive\projetos\p1-eda2\aux_p1.h
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	<conio.h>
 	<time.h>
-	"aux_p1.h"
+	<math.h>
 	"radixSort.h"
 	"quickSort.h"
 	"shellSort.h"
@@ -28,15 +31,8 @@
 	"mergeSort.h"
 	"timSort.h"
 
-1745011420 z:\my drive\projetos\p1-eda2\aux_p1.h
-
-1745011214 source:z:\my drive\projetos\p1-eda2\aux_p1.c
-	<stdio.h>
-	<stdlib.h>
-	<locale.h>
-	<time.h>
-	<conio.h>
-	<time.h>
+1745017317 source:z:\my drive\projetos\p1-eda2\aux_p1.c
+	"aux_p1.h"
 
 1744950065 source:z:\my drive\projetos\p1-eda2\radixsorte.c
 	<stdio.h>
@@ -47,46 +43,35 @@
 
 1744950062 z:\my drive\projetos\p1-eda2\radixsort.h
 
-1744950062 source:z:\my drive\projetos\p1-eda2\quicksort.c
-	<stdio.h>
-	<stdlib.h>
-	"quickSort.h"
+1745017403 source:z:\my drive\projetos\p1-eda2\quicksort.c
+	"aux_p1.h"
 
 1744950062 z:\my drive\projetos\p1-eda2\quicksort.h
 
-1744950065 source:z:\my drive\projetos\p1-eda2\shellsort.c
-	<stdio.h>
-	<stdlib.h>
-	"shellSort.h"
+1745017415 source:z:\my drive\projetos\p1-eda2\shellsort.c
+	"aux_p1.h"
 
 1744950065 z:\my drive\projetos\p1-eda2\shellsort.h
 
-1744950062 source:z:\my drive\projetos\p1-eda2\bucketsort.c
-	<stdio.h>
-	<stdlib.h>
-	"bucketSort.h"
+1745017378 source:z:\my drive\projetos\p1-eda2\bucketsort.c
+	"aux_p1.h"
 
 1744950062 z:\my drive\projetos\p1-eda2\bucketsort.h
 
-1744950062 source:z:\my drive\projetos\p1-eda2\countingsort.c
-	<stdio.h>
-	<stdlib.h>
-	"countingSort.h"
+1745017386 source:z:\my drive\projetos\p1-eda2\countingsort.c
+	"aux_p1.h"
 
 1744950062 z:\my drive\projetos\p1-eda2\countingsort.h
 
-1744950062 source:z:\my drive\projetos\p1-eda2\heapsort.c
-	<stdio.h>
-	"heapSort.h"
+1745017393 source:z:\my drive\projetos\p1-eda2\heapsort.c
+	"aux_p1.h"
 
 1744950062 z:\my drive\projetos\p1-eda2\heapsort.h
 
 1744950062 z:\my drive\projetos\p1-eda2\mergesort.h
 
-1744950062 source:z:\my drive\projetos\p1-eda2\mergesort.c
-	<stdio.h>
-	<stdlib.h>
-	"mergeSort.h"
+1745017398 source:z:\my drive\projetos\p1-eda2\mergesort.c
+	"aux_p1.h"
 
 1745004966 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\aux_p1.c
 	<stdio.h>
@@ -235,3 +220,9 @@
 	"timSort.h"
 
 1745002910 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\timsort.h
+
+1745017420 source:z:\my drive\projetos\p1-eda2\timsort.c
+	"aux_p1.h"
+
+1744950065 z:\my drive\projetos\p1-eda2\timsort.h
+

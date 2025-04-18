@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "quickSort.h"
+#include "aux_p1.h"
 
 // Função para trocar dois elementos no array
 void troca(int *a, int *b) {

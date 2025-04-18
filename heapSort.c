@@ -2,8 +2,7 @@
 //GU301553X - Hugo Barbosa
 //GU3052834 - Luiz Fernando
 
-#include <stdio.h>
-#include "heapSort.h"
+#include "aux_p1.h"
 
 void swap(int *a, int *b) {
     int temp = *a;

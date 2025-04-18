@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "shellSort.h"
+#include "aux_p1.h"
 
 // Insertion sort
 void InsertionSort(int arr[], int tam){
