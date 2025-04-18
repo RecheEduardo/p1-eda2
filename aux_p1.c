@@ -165,8 +165,8 @@ unsigned long int menuTamanho(){
     return -1; // O retorno acontece pelo switch, porém coloquei um aqui para o compilador não ficar dando Warning
 }
 
-unsigned long int *listaCrescente(unsigned long int tamanho){
-    unsigned long int *lista = malloc(tamanho * sizeof(unsigned int));
+unsigned long int *listaCrescente(unsigned long int *lista, unsigned long int tamanho){
+    lista = malloc(tamanho * sizeof(unsigned int));
 
     if (lista == NULL) {
         printf("Erro na alocação de memória!\n");
@@ -180,8 +180,8 @@ unsigned long int *listaCrescente(unsigned long int tamanho){
     return lista;
 }
 
-unsigned long int *listaDecrescente(unsigned long int tamanho){
-    unsigned long int *lista = malloc(tamanho * sizeof(unsigned int));
+unsigned long int *listaDecrescente(unsigned long int *lista, unsigned long int tamanho){
+    lista = malloc(tamanho * sizeof(unsigned int));
 
     if (lista == NULL) {
         printf("Erro na alocação de memória!\n");
@@ -195,14 +195,13 @@ unsigned long int *listaDecrescente(unsigned long int tamanho){
     return lista;
 }
 
-unsigned long int *listaAleatoria(unsigned long int tamanho){
-    unsigned long int *lista;
+unsigned long int *listaAleatoria(unsigned long int *lista, unsigned long int tamanho){
     unsigned long int tmp, j;
 
     srand((unsigned) time(NULL));
 
     // Cria primeiro uma lista crescente
-    lista = listaCrescente(tamanho);
+    lista = listaCrescente(lista, tamanho);
 
     // E agora embaralha a lista
     for(unsigned long int i = 0; i < tamanho; i++){
