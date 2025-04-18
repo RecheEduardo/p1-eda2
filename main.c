@@ -1,20 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <locale.h>
-#include <conio.h> // Biblioteca para ler as teclas direcionais do teclado sem a necessidade do ENTER
-#include <time.h>
 #include "aux_p1.h"
-
-// ALGORITMOS DE ORDENAï¿½ï¿½O
-#include "radixSort.h"
-#include "quickSort.h"
-#include "shellSort.h"
-#include "bucketSort.h"
-#include "countingSort.h"
-#include "heapSort.h"
-#include "mergeSort.h"
-#include "timSort.h"
-// Falta: Bubble Sort, Insertion Sort, Selection Sort
 
 int main()
 {
@@ -23,7 +7,24 @@ int main()
     unsigned long int tamanho;
 
     setlocale(LC_ALL, "");
+    /*TESTE ########################*/
+    unsigned long int *lc, *ld, *la;
+    unsigned long int tm = 15;
 
+    lc = listaCrescente(tm);
+    printf("\n\nLista Crescente:");
+    imprimirVetor(lc, tm);
+
+    ld = listaDecrescente(tm);
+    printf("\n\nLista Crescente:");
+    imprimirVetor(ld, tm);
+
+    la = listaAleatoria(tm);
+    printf("\n\nLista Aleatória:");
+    imprimirVetor(la, tm);
+    printf("\n\n");
+    system("PAUSE");
+    /*##########################*/
     do{
         algoritmo = menuPrincipal();
 

@@ -1,12 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <locale.h>
-#include <time.h>
-#include <conio.h> // Biblioteca para ler as teclas direcionais do teclado sem a necessidade do ENTER
-#include <time.h>
+#include "aux_p1.h"
 
 // MENU PRINCIPAL INTERATIVO
-int menuPrincipal(){
+unsigned int menuPrincipal(){
     char inputUser;
     int row = 0, col = 0, algoritmo = 0;
     char selection[4][3];
@@ -165,8 +160,8 @@ unsigned long int menuTamanho(){
     return -1; // O retorno acontece pelo switch, porém coloquei um aqui para o compilador não ficar dando Warning
 }
 
-unsigned long int *listaCrescente(unsigned long int *lista, unsigned long int tamanho){
-    lista = malloc(tamanho * sizeof(unsigned int));
+unsigned long int *listaCrescente(unsigned long int tamanho){
+    unsigned long int *lista = malloc(tamanho * sizeof(unsigned int));
 
     if (lista == NULL) {
         printf("Erro na alocação de memória!\n");
@@ -180,8 +175,8 @@ unsigned long int *listaCrescente(unsigned long int *lista, unsigned long int ta
     return lista;
 }
 
-unsigned long int *listaDecrescente(unsigned long int *lista, unsigned long int tamanho){
-    lista = malloc(tamanho * sizeof(unsigned int));
+unsigned long int *listaDecrescente(unsigned long int tamanho){
+    unsigned long int *lista = malloc(tamanho * sizeof(unsigned int));
 
     if (lista == NULL) {
         printf("Erro na alocação de memória!\n");
@@ -195,13 +190,14 @@ unsigned long int *listaDecrescente(unsigned long int *lista, unsigned long int 
     return lista;
 }
 
-unsigned long int *listaAleatoria(unsigned long int *lista, unsigned long int tamanho){
+unsigned long int *listaAleatoria(unsigned long int tamanho){
+    unsigned long int *lista;
     unsigned long int tmp, j;
 
     srand((unsigned) time(NULL));
 
     // Cria primeiro uma lista crescente
-    lista = listaCrescente(lista, tamanho);
+    lista = listaCrescente(tamanho);
 
     // E agora embaralha a lista
     for(unsigned long int i = 0; i < tamanho; i++){
@@ -213,6 +209,13 @@ unsigned long int *listaAleatoria(unsigned long int *lista, unsigned long int ta
 
     return lista;
 }
+
+void imprimirVetor(unsigned long int *vetor, unsigned long int tamanho){ // Rotina para teste
+    for(int i = 0; i < tamanho; i++){
+        printf(" %lu", vetor[i]);
+    }
+}
+
 //  nomeDoAlgoritmoTeste(unsigned long int *lista, unsigned long int tamanho){
 //      CÓDIGO...
 //  }

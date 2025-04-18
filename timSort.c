@@ -15,9 +15,7 @@ Seminário TimSort:
 */
 
 // Import de bibliotecas necessárias para execução efetiva do código:
-#include <stdio.h>
-#include <stdlib.h>
-#include "timSort.h"
+#include "aux_p1.h"
 
 #define RUN 32 // Definição do tamanho mínimo do bloco para o InsertionSort.
 
