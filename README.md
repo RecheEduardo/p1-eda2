@@ -4,7 +4,7 @@
 <p>Primeiro, todos os membros do grupo precisam clonar o repositório em suas máquinas locais. Para isso, use o seguinte comando no terminal:</p>
 
 ```bash
-git clone git@github.com:lucas-oliveirah17/Projeto-Estrutura-de-Dados-1.git
+git clone https://github.com/RecheEduardo/p1-eda2.git
 ```
 
 <p>Isso cria uma cópia local do repositório em seu computador.</p>
