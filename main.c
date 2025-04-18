@@ -5,7 +5,7 @@
 #include <time.h>
 #include "aux_p1.h"
 
-// ALGORITMOS DE ORDENAÇÂO
+// ALGORITMOS DE ORDENAï¿½ï¿½O
 #include "radixSort.h"
 #include "quickSort.h"
 #include "shellSort.h"
@@ -14,7 +14,7 @@
 #include "heapSort.h"
 #include "mergeSort.h"
 #include "timSort.h"
-// Falta: Burble Sort, Inserction Sort, Selection Sort
+// Falta: Bubble Sort, Insertion Sort, Selection Sort
 
 int main()
 {
@@ -28,9 +28,9 @@ int main()
         algoritmo = menuPrincipal();
 
         switch(algoritmo){
-            case 1: // BURBLE SORT
+            case 1: // BUBBLE SORT
                 system("cls");
-                printf("Opção Selecionada: BURBLE SORT");
+                printf("Opï¿½ï¿½o Selecionada: BUBBLE SORT");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
                 // nomeDoAlgoritmoTeste(lista, tamanho);
@@ -38,7 +38,7 @@ int main()
 
             case 2: // INSERTION SORT
                 system("cls");
-                printf("Opção Selecionada: INSERTION SORT");
+                printf("Opï¿½ï¿½o Selecionada: INSERTION SORT");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
                 // nomeDoAlgoritmoTeste(lista, tamanho);
@@ -46,14 +46,14 @@ int main()
 
             case 3: // SELECTION SORT
                 system("cls");
-                printf("Opção Selecionada: SELECTION SORT");
+                printf("Opï¿½ï¿½o Selecionada: SELECTION SORT");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
                 // nomeDoAlgoritmoTeste(lista, tamanho);
                 break;
 
             case 4: // SHELL SORT
-                printf("Opção Selecionada: SHELL SORT");
+                printf("Opï¿½ï¿½o Selecionada: SHELL SORT");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
                 // nomeDoAlgoritmoTeste(lista, tamanho);
@@ -61,14 +61,14 @@ int main()
 
             case 5: // MERGE SORT
                 system("cls");
-                printf("Opção Selecionada: MERGE SORT");
+                printf("Opï¿½ï¿½o Selecionada: MERGE SORT");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
                 // nomeDoAlgoritmoTeste(lista, tamanho);
                 break;
 
             case 6: // QUICK SORT [06]
-                printf("Opção Selecionada: QUICK SORT");
+                printf("Opï¿½ï¿½o Selecionada: QUICK SORT");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
                 // nomeDoAlgoritmoTeste(lista, tamanho);
@@ -76,7 +76,7 @@ int main()
 
             case 7: // HEAP SORT
                 system("cls");
-                printf("Opção Selecionada: HEAP SORT");
+                printf("Opï¿½ï¿½o Selecionada: HEAP SORT");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
                 // nomeDoAlgoritmoTeste(lista, tamanho);
@@ -84,15 +84,15 @@ int main()
 
             case 8: // BUCKET SORT
                 system("cls");
-                printf("Opção Selecionada: BUCKET SORT");
+                printf("Opï¿½ï¿½o Selecionada: BUCKET SORT");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
                 // nomeDoAlgoritmoTeste(lista, tamanho);
                 break;
 
-            case 9: // RADIX SORT (LDS)
+            case 9: // RADIX SORT (LSD)
                 system("cls");
-                printf("Opção Selecionada: RADIX SORT (LDS)");
+                printf("Opï¿½ï¿½o Selecionada: RADIX SORT (LSD)");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
                 // nomeDoAlgoritmoTeste(lista, tamanho);
@@ -100,7 +100,7 @@ int main()
 
             case 10: // COUNTING SORT
                 system("cls");
-                printf("Opção Selecionada: COUNTING SORT");
+                printf("Opï¿½ï¿½o Selecionada: COUNTING SORT");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
                 // nomeDoAlgoritmoTeste(lista, tamanho);
@@ -108,7 +108,7 @@ int main()
 
             case 11: //TIM SORT
                 system("cls");
-                printf("Opção Selecionada: TIM SORT");
+                printf("Opï¿½ï¿½o Selecionada: TIM SORT");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
                 // nomeDoAlgoritmoTeste(lista, tamanho);
