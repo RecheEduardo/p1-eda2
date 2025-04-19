@@ -170,15 +170,15 @@
 	<stdlib.h>
 	"timSort.h"
 
-1745007293 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\aux_p1.c
+1745014444 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\aux_p1.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	<time.h>
 	<conio.h>
-	<time.h>
+	<sys/time.h>
 
-1745002910 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\bucketsort.c
+1745009122 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\bucketsort.c
 	<stdio.h>
 	<stdlib.h>
 	"bucketSort.h"
@@ -234,4 +234,22 @@
 	"timSort.h"
 
 1745002910 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\timsort.h
+
+1745008987 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<conio.h>
+	<time.h>
+	"aux_p1.h"
+	"radixSort.h"
+	"quickSort.h"
+	"shellSort.h"
+	"bucketSort.h"
+	"countingSort.h"
+	"heapSort.h"
+	"mergeSort.h"
+	"timSort.h"
+
+1745009022 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\aux_p1.h
 

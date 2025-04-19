@@ -12,7 +12,7 @@ typedef struct {
 } Balde;
 
 // Função para organizar os itens do balde
-void insertionSort(int *array, int tamanho) {
+void insertionSortBucket(int *array, int tamanho) {
     for (int i = 1; i < tamanho; i++) {
         int chave = array[i];  // Chave = Elemento atual a ser ordenado
         int j = i - 1;

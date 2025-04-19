@@ -214,27 +214,27 @@ unsigned long int *listaAleatoria(unsigned long int *lista, unsigned long int ta
     return lista;
 }
 
-unsigned long double insertionSort(unsigned long int *lista, unsigned long int tamanho){
-    int aux, x;
+double insertionSort(unsigned long int *lista, unsigned long int tamanho){
+    int aux, x, i, j;
     struct timeval tempoInicial, tempoFinal;
 
     x = gettimeofday(&tempoInicial, NULL); // Armazena o tempo em que a execução da ordenação começou
     if(x == -1){
-        printf("\n-- Falha na coleta do tempo inicial de execução, abortando... --");
+        printf("\n-- Falha na coleta do tempo inicial de execucao, abortando... --");
         return -1;
     }
 
-    for(int i=1; i<tamanho; i++){
+    for(i=1; i<tamanho; i++){
         aux = lista[i];
-        for(j=i; (j>0) && (aux < v[j-1]); j--) {
-            v[j] = v[j-1];
+        for(j=i; (j>0) && (aux < lista[j-1]); j--) {
+            lista[j] = lista[j-1];
         }
-        v[j] = aux;
+        lista[j] = aux;
     }
 
     x = gettimeofday(&tempoFinal, NULL); // Armazena o tempo em que a execução da ordenação terminou
     if(x == -1){
-        printf("\n-- Falha na coleta do tempo final de execução, abortando... --");
+        printf("\n-- Falha na coleta do tempo final de execucao, abortando... --");
         return -1;
     }
 
@@ -242,5 +242,22 @@ unsigned long double insertionSort(unsigned long int *lista, unsigned long int t
 }
 
 void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+    double mediaTempo, somaTempo = 0, tempoUnico;
+    system("cls");
+    printf("### INICIANDO TESTES DE ORDENACAO COM INSERTION SORT ###\n\n");
 
+    for(int i=0; i<10; i++) {
+        printf("Teste %d de 10 ordenando numeros gerado aleatoriamente...", i+1);
+        lista = listaAleatoria(lista, tamanho);
+        tempoUnico = insertionSort(lista, tamanho);
+        somaTempo += tempoUnico;
+        printf("\n\nTempo utilizado nesta ordenacao: %f\n\n", tempoUnico);
+        system("pause");
+        system("cls");
+        free(lista);
+    }
+    mediaTempo = somaTempo / 10;
+    printf("Soma de todos os tempos: %f\n\n",somaTempo);
+    printf("Tempo medio de execucao: %f\n\n", mediaTempo);
+    system("pause");
 }

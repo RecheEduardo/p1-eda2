@@ -41,7 +41,7 @@ int main()
                 printf("Algoritmo selecionado: INSERTION SORT\n");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                insertionSortTeste(lista, tamanho);
                 break;
 
             case 3: // SELECTION SORT

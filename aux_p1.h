@@ -9,4 +9,6 @@ unsigned long int *listaDecrescente(unsigned long int *lista, unsigned long int 
 
 unsigned long int *listaAleatoria(unsigned long int *lista, unsigned long int tamanho);
 
+void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho);
+
 // nomeDoAlgoritmoTeste(unsigned long int *lista, unsigned long int tamanho);
