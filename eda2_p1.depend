@@ -1,231 +1,32 @@
 # depslib dependency file v1.0
-1744759552 source:c:\users\aluno\desktop\projeto_eda2\eda2_p1\aux_p1.c
+1745072325 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\algoritmos.c
 	<stdio.h>
 	<stdlib.h>
-	<locale.h>
-	<conio.h>
-
-1744758924 source:c:\users\aluno\desktop\projeto_eda2\eda2_p1\main.c
-	<stdio.h>
-	<stdlib.h>
+	<time.h>
+	<sys/time.h>
 	"aux_p1.h"
 
-1744758967 c:\users\aluno\desktop\projeto_eda2\eda2_p1\aux_p1.h
-
-1745018249 source:z:\my drive\projetos\p1-eda2\main.c
-	"aux_p1.h"
-
-1745017930 z:\my drive\projetos\p1-eda2\aux_p1.h
+1745070407 c:\users\eduardo\desktop\p1_eda2\p1-eda2\aux_p1.h
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	<conio.h>
 	<time.h>
 	<math.h>
-	"radixSort.h"
-	"quickSort.h"
-	"shellSort.h"
-	"bucketSort.h"
-	"countingSort.h"
-	"heapSort.h"
-	"mergeSort.h"
-	"timSort.h"
+	"algoritmos.h"
 
-1745019599 source:z:\my drive\projetos\p1-eda2\aux_p1.c
-	"aux_p1.h"
+1745072363 c:\users\eduardo\desktop\p1_eda2\p1-eda2\algoritmos.h
 
-1744950065 source:z:\my drive\projetos\p1-eda2\radixsorte.c
-	<stdio.h>
-	<stdlib.h>
-	<math.h>
-	<time.h>
-	"radixSort.h"
-
-1744950062 z:\my drive\projetos\p1-eda2\radixsort.h
-
-1745017930 source:z:\my drive\projetos\p1-eda2\quicksort.c
-	"aux_p1.h"
-
-1744950062 z:\my drive\projetos\p1-eda2\quicksort.h
-
-1745017930 source:z:\my drive\projetos\p1-eda2\shellsort.c
-	"aux_p1.h"
-
-1744950065 z:\my drive\projetos\p1-eda2\shellsort.h
-
-1745017930 source:z:\my drive\projetos\p1-eda2\bucketsort.c
-	"aux_p1.h"
-
-1744950062 z:\my drive\projetos\p1-eda2\bucketsort.h
-
-1745017930 source:z:\my drive\projetos\p1-eda2\countingsort.c
-	"aux_p1.h"
-
-1744950062 z:\my drive\projetos\p1-eda2\countingsort.h
-
-1745017930 source:z:\my drive\projetos\p1-eda2\heapsort.c
-	"aux_p1.h"
-
-1744950062 z:\my drive\projetos\p1-eda2\heapsort.h
-
-1744950062 z:\my drive\projetos\p1-eda2\mergesort.h
-
-1745017930 source:z:\my drive\projetos\p1-eda2\mergesort.c
-	"aux_p1.h"
-
-1745004966 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\aux_p1.c
+1745070407 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\aux_p1.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	<time.h>
 	<conio.h>
-	<time.h>
-
-1745003082 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\bucketsort.c
-	<stdio.h>
-	<stdlib.h>
-	"bucketSort.h"
-
-1745003082 c:\users\eduardo\desktop\p1_eda2\p1-eda2\bucketsort.h
-
-1745003082 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\countingsort.c
-	<stdio.h>
-	<stdlib.h>
-	"countingSort.h"
-
-1745003082 c:\users\eduardo\desktop\p1_eda2\p1-eda2\countingsort.h
-
-1745003082 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\heapsort.c
-	<stdio.h>
-	"heapSort.h"
-
-1745003082 c:\users\eduardo\desktop\p1_eda2\p1-eda2\heapsort.h
-
-1745005065 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\main.c
-	<stdio.h>
-	<stdlib.h>
-	<locale.h>
-	<conio.h>
-	<time.h>
-	"aux_p1.h"
-	"radixSort.h"
-	"quickSort.h"
-	"shellSort.h"
-	"bucketSort.h"
-	"countingSort.h"
-	"heapSort.h"
-	"mergeSort.h"
-	"timSort.h"
-
-1745003082 c:\users\eduardo\desktop\p1_eda2\p1-eda2\aux_p1.h
-
-1745003082 c:\users\eduardo\desktop\p1_eda2\p1-eda2\radixsort.h
-
-1745003082 c:\users\eduardo\desktop\p1_eda2\p1-eda2\quicksort.h
-
-1745003082 c:\users\eduardo\desktop\p1_eda2\p1-eda2\shellsort.h
-
-1745003082 c:\users\eduardo\desktop\p1_eda2\p1-eda2\mergesort.h
-
-1745003082 c:\users\eduardo\desktop\p1_eda2\p1-eda2\timsort.h
-
-1745003082 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\mergesort.c
-	<stdio.h>
-	<stdlib.h>
-	"mergeSort.h"
-
-1745003082 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\quicksort.c
-	<stdio.h>
-	<stdlib.h>
-	"quickSort.h"
-
-1745003082 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\radixsorte.c
-	<stdio.h>
-	<stdlib.h>
-	<math.h>
-	<time.h>
-	"radixSort.h"
-
-1745003082 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\shellsort.c
-	<stdio.h>
-	<stdlib.h>
-	"shellSort.h"
-
-1745003082 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\timsort.c
-	<stdio.h>
-	<stdlib.h>
-	"timSort.h"
-
-1745007293 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\aux_p1.c
-	<stdio.h>
-	<stdlib.h>
-	<locale.h>
-	<time.h>
-	<conio.h>
-	<time.h>
-
-1745002910 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\bucketsort.c
-	<stdio.h>
-	<stdlib.h>
-	"bucketSort.h"
-
-1745002910 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\bucketsort.h
-
-1745002910 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\countingsort.c
-	<stdio.h>
-	<stdlib.h>
-	"countingSort.h"
-
-1745002910 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\countingsort.h
-
-1745002910 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\heapsort.c
-	<stdio.h>
-	"heapSort.h"
-
-1745002910 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\heapsort.h
-
-1745002910 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\mergesort.c
-	<stdio.h>
-	<stdlib.h>
-	"mergeSort.h"
-
-1745002910 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\mergesort.h
-
-1745002910 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\quicksort.c
-	<stdio.h>
-	<stdlib.h>
-	"quickSort.h"
-
-1745002910 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\quicksort.h
-
-1745002910 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\radixsorte.c
-	<stdio.h>
-	<stdlib.h>
-	<math.h>
-	<time.h>
-	"radixSort.h"
-
-1745002910 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\radixsort.h
-
-1745002910 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\shellsort.c
-	<stdio.h>
-	<stdlib.h>
-	"shellSort.h"
-
-1745002910 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\shellsort.h
-
-1745002910 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\timsort.c
-	<stdio.h>
-	<stdlib.h>
-	"timSort.h"
-
-1745002910 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\timsort.h
-
-1745017930 source:z:\my drive\projetos\p1-eda2\timsort.c
+	<sys/time.h>
 	"aux_p1.h"
 
-1744950065 z:\my drive\projetos\p1-eda2\timsort.h
-
-1745017930 source:z:\my drive\projetos\p1-eda2\radixsort.c
+1745072181 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\main.c
 	"aux_p1.h"
+	"algoritmos.h"
 

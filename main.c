@@ -1,4 +1,5 @@
 #include "aux_p1.h"
+#include "algoritmos.h"
 
 int main()
 {
@@ -7,24 +8,6 @@ int main()
     unsigned long int tamanho;
 
     setlocale(LC_ALL, "");
-    /*TESTE ########################*/
-    /*unsigned long int *lc, *ld, *la;
-    unsigned long int tm = 15;
-
-    lc = listaCrescente(tm);
-    printf("\n\nLista Crescente:");
-    imprimirVetor(lc, tm);
-
-    ld = listaDecrescente(tm);
-    printf("\n\nLista Crescente:");
-    imprimirVetor(ld, tm);
-
-    la = listaAleatoria(tm);
-    printf("\n\nLista Aleatória:");
-    imprimirVetor(la, tm);
-    printf("\n\n");
-    system("PAUSE");*/
-    /*##########################*/
     do{
         algoritmo = menuPrincipal();
 
@@ -42,7 +25,7 @@ int main()
                 printf("Algoritmo selecionado: INSERTION SORT\n");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                insertionSortTeste(lista, tamanho);
                 break;
 
             case 3: // SELECTION SORT
@@ -57,7 +40,7 @@ int main()
                 printf("Algoritmo selecionado: SHELL SORT\n");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                shellSortTeste(lista, tamanho);
                 break;
 
             case 5: // MERGE SORT
@@ -65,7 +48,7 @@ int main()
                 printf("Algoritmo selecionado: MERGE SORT\n");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                mergeSortTeste(lista, tamanho);
                 break;
 
             case 6: // QUICK SORT [06]
@@ -96,7 +79,7 @@ int main()
                 printf("Algoritmo selecionado: RADIX SORT (LSD)\n");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                radixSortTeste(lista, tamanho);
                 break;
 
             case 10: // COUNTING SORT
@@ -104,7 +87,7 @@ int main()
                 printf("Algoritmo selecionado: COUNTING SORT\n");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                countingSortTeste(lista, tamanho);
                 break;
 
             case 11: //TIM SORT

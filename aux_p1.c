@@ -1,3 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <time.h>
+#include <conio.h> // Biblioteca para ler as teclas direcionais do teclado sem a necessidade do ENTER
+#include <sys/time.h>
 #include "aux_p1.h"
 
 // MENU PRINCIPAL INTERATIVO

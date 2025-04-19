@@ -31,45 +31,17 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="aux_p1.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="aux_p1.h" />
-		<Unit filename="bucketSort.c">
+		<Unit filename="algoritmos.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="bucketSort.h" />
-		<Unit filename="countingSort.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="countingSort.h" />
-		<Unit filename="heapSort.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="heapSort.h" />
-		<Unit filename="main.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="mergeSort.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="mergeSort.h" />
-		<Unit filename="quickSort.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="quickSort.h" />
-		<Unit filename="radixSort.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="radixSort.h" />
-		<Unit filename="shellSort.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="shellSort.h" />
-		<Unit filename="timSort.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="timSort.h" />
+		<Unit filename="algoritmos.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
