@@ -1,4 +1,5 @@
 #include "aux_p1.h"
+#include "algoritmos.h"
 
 int main()
 {
@@ -7,24 +8,6 @@ int main()
     unsigned long int tamanho;
 
     setlocale(LC_ALL, "");
-    /*TESTE ########################*/
-    /*unsigned long int *lc, *ld, *la;
-    unsigned long int tm = 15;
-
-    lc = listaCrescente(tm);
-    printf("\n\nLista Crescente:");
-    imprimirVetor(lc, tm);
-
-    ld = listaDecrescente(tm);
-    printf("\n\nLista Crescente:");
-    imprimirVetor(ld, tm);
-
-    la = listaAleatoria(tm);
-    printf("\n\nLista Aleatória:");
-    imprimirVetor(la, tm);
-    printf("\n\n");
-    system("PAUSE");*/
-    /*##########################*/
     do{
         algoritmo = menuPrincipal();
 
@@ -42,7 +25,7 @@ int main()
                 printf("Algoritmo selecionado: INSERTION SORT\n");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                insertionSortTeste(lista, tamanho);
                 break;
 
             case 3: // SELECTION SORT

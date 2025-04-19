@@ -73,7 +73,13 @@
 1745017930 source:z:\my drive\projetos\p1-eda2\mergesort.c
 	"aux_p1.h"
 
-1745020381 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\aux_p1.c
+1745036008 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\aux_p1.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<conio.h>
+	<sys/time.h>
 	"aux_p1.h"
 
 1745020381 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\bucketsort.c
@@ -91,17 +97,18 @@
 
 1745003082 c:\users\eduardo\desktop\p1_eda2\p1-eda2\heapsort.h
 
-1745020381 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\main.c
+1745035987 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\main.c
 	"aux_p1.h"
+	"algoritmos.h"
 
-1745029371 c:\users\eduardo\desktop\p1_eda2\p1-eda2\aux_p1.h
+1745036021 c:\users\eduardo\desktop\p1_eda2\p1-eda2\aux_p1.h
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	<conio.h>
 	<time.h>
 	<math.h>
-	"algoritimos.h"
+	"algoritmos.h"
 
 1745003082 c:\users\eduardo\desktop\p1_eda2\p1-eda2\radixsort.h
 
@@ -213,4 +220,12 @@
 	<stdlib.h>
 
 1745022855 c:\users\eduardo\desktop\p1_eda2\p1-eda2\algoritimos.h
+
+1745036085 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\algoritmos.c
+	<stdio.h>
+	<stdlib.h>
+	<sys/time.h>
+	"aux_p1.h"
+
+1745036054 c:\users\eduardo\desktop\p1_eda2\p1-eda2\algoritmos.h
 

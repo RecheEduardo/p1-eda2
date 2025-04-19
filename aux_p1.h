@@ -6,7 +6,7 @@
 #include <math.h>
 
 // ALGORITMOS DE ORDENACAO
-#include "algoritimos.h"
+#include "algoritmos.h"
 // Falta: Bubble Sort, Insertion Sort, Selection Sort
 
 
@@ -22,5 +22,7 @@ unsigned long int *listaDecrescente(unsigned long int tamanho);
 unsigned long int *listaAleatoria(unsigned long int tamanho);
 
 void imprimirVetor(unsigned long int *vetor,unsigned long int tamanho); // Rotina para teste
+
+void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 // nomeDoAlgoritmoTeste(unsigned long int *lista, unsigned long int tamanho);
