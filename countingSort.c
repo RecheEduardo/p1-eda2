@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "countingSort.h"
+#include "aux_p1.h"
 
 void countingSort(int inputArray[], int numElementos) {
     // 1º Passo:

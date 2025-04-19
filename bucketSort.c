@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "bucketSort.h"
+#include "aux_p1.h"
 
 #define NUM_BUCKETS 10  // Define o número de baldes
 #define MAX_SIZE 10     // Define o tamanho do vetor de entrada

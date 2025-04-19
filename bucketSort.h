@@ -1,4 +1,4 @@
-void insertionSort(int *array, int tamanho);
+void insertionSortBucket(int *array, int tamanho);
 
 void bucketSort(int *vetor, int tamanho);
 

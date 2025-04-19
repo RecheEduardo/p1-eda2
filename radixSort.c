@@ -1,11 +1,8 @@
 // Arquivo radixSortE.c - Ordenação Radix Sort
 // Feito por Lucas Silva de Oliveira
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <time.h>
-#include "radixSort.h"
+#include "aux_p1.h"
+
 /*######################################################*/
 // Uma função utilitária para obter o valor máximo em
 // arr[]
@@ -59,8 +56,8 @@ void countSort(unsigned int *arr, unsigned int n, unsigned int exp, unsigned int
         arr[i] = output[i];
 
     // Imprime a lista para cada etapa de ordenação
-    unsigned int dg;
-    dg = log(exp) / log(radix);
+    //unsigned int dg;
+    //dg = log(exp) / log(radix);
     //printf("Dígito %d^%d: ", radix, dg);
     //printArray(arr, n, radix);
 

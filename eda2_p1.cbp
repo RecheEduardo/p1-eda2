@@ -58,10 +58,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="quickSort.h" />
-		<Unit filename="radixSort.h" />
-		<Unit filename="radixSortE.c">
+		<Unit filename="radixSort.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="radixSort.h" />
 		<Unit filename="shellSort.c">
 			<Option compilerVar="CC" />
 		</Unit>

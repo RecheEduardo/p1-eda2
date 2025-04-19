@@ -4,9 +4,10 @@
 #include <time.h>
 #include <conio.h> // Biblioteca para ler as teclas direcionais do teclado sem a necessidade do ENTER
 #include <sys/time.h>
+#include "aux_p1.h"
 
 // MENU PRINCIPAL INTERATIVO
-int menuPrincipal(){
+unsigned int menuPrincipal(){
     char inputUser;
     int row = 0, col = 0, algoritmo = 0;
     char selection[4][3];
@@ -21,13 +22,13 @@ int menuPrincipal(){
 
     do{
         system("cls"); // Limpa a tela
-        printf("\n===== ESCOLHA UM ALGORITMO PARA A BATERIA DE TESTES =====\n");
+        printf("\n#####################################################");
+        printf("\n=== ESCOLHA UM ALGORITMO PARA A BATERIA DE TESTES ===\n");
         printf("\n%c BUBBLE SORT   %c INSERTION SORT %c SELECTION SORT  ", selection[0][0], selection[0][1], selection[0][2]);
         printf("\n%c SHELL SORT    %c MERGE SORT     %c QUICK SORT      ", selection[1][0], selection[1][1], selection[1][2]);
         printf("\n%c HEAP SORT     %c BUCKET SORT    %c RADIX SORT (LSD)", selection[2][0], selection[2][1], selection[2][2]);
         printf("\n%c COUNTING SORT %c TIM SORT       %c SAIR            ", selection[3][0], selection[3][1], selection[3][2]);
-        printf("\n\n#########################################################\n");
-
+        printf("\n\n#####################################################\n");
 
         // Ao clicar com as setas, envia 2 códigos, sendo o primeiro -32, e o segundo o código real
         inputUser = getch(); // Captura o primeiro código
@@ -94,7 +95,8 @@ unsigned long int menuTamanho(){
 
     do{
         system("cls");
-        printf("\n====== SELECIONE O TAMANHO DO VETOR DE TESTES ======\n");
+        printf("\n#####################################################");
+        printf("\n======= SELECIONE O TAMANHO DO VETOR DE TESTES ======\n");
         printf("\n%c 10.000      ELEMENTOS", selection[0]);
         printf("\n%c 50.000      ELEMENTOS", selection[1]);
         printf("\n%c 100.000     ELEMENTOS", selection[2]);
@@ -165,8 +167,8 @@ unsigned long int menuTamanho(){
     return -1; // O retorno acontece pelo switch, porém coloquei um aqui para o compilador não ficar dando Warning
 }
 
-unsigned long int *listaCrescente(unsigned long int *lista, unsigned long int tamanho){
-    lista = malloc(tamanho * sizeof(unsigned int));
+unsigned long int *listaCrescente(unsigned long int tamanho){
+    unsigned long int *lista = malloc(tamanho * sizeof(unsigned int));
 
     if (lista == NULL) {
         printf("Erro na alocação de memória!\n");
@@ -180,8 +182,8 @@ unsigned long int *listaCrescente(unsigned long int *lista, unsigned long int ta
     return lista;
 }
 
-unsigned long int *listaDecrescente(unsigned long int *lista, unsigned long int tamanho){
-    lista = malloc(tamanho * sizeof(unsigned int));
+unsigned long int *listaDecrescente(unsigned long int tamanho){
+    unsigned long int *lista = malloc(tamanho * sizeof(unsigned int));
 
     if (lista == NULL) {
         printf("Erro na alocação de memória!\n");
@@ -195,13 +197,14 @@ unsigned long int *listaDecrescente(unsigned long int *lista, unsigned long int 
     return lista;
 }
 
-unsigned long int *listaAleatoria(unsigned long int *lista, unsigned long int tamanho){
+unsigned long int *listaAleatoria(unsigned long int tamanho){
+    unsigned long int *lista;
     unsigned long int tmp, j;
 
     srand((unsigned) time(NULL));
 
     // Cria primeiro uma lista crescente
-    lista = listaCrescente(lista, tamanho);
+    lista = listaCrescente(tamanho);
 
     // E agora embaralha a lista
     for(unsigned long int i = 0; i < tamanho; i++){
@@ -213,6 +216,35 @@ unsigned long int *listaAleatoria(unsigned long int *lista, unsigned long int ta
 
     return lista;
 }
+
+void imprimirVetor(unsigned long int *vetor, unsigned long int tamanho){ // Rotina para teste
+    for(int i = 0; i < tamanho; i++){
+        printf(" %lu", vetor[i]);
+    }
+}
+
+//  void nomeDoAlgoritmoTeste(unsigned long int *lista, unsigned long int tamanho){
+//      1 - Teste com a lista aleatória (MÉDIA) (Testar 10 vezes)
+//        { a - Cria a lista aleatória
+//          b - Inicia o temporizador
+//          c - Inicia a ordenação do vetor
+//          d - Registra o tempo da ordenação e libera a lista com o Free } x10
+//      2 - Feito os 10 testes da lista aleatória, tirar a média dos resultados e registra em uma variavel
+//
+//      3 - Agora faz o teste com a lista crescente (MELHOR CASO)
+//          a - Cria a lista crescente
+//          b - Inicia o temporizador
+//          c - Inicia a ordenação do vetor
+//          d - Registra o tempo da ordenação e libera a lista com o Free
+//
+//      4 - Agora faz o teste com a lista decrescente (PIOR CASO)
+//          a - Cria a lista crescente
+//          b - Inicia o temporizador
+//          c - Inicia a ordenação do vetor
+//          d - Registra o tempo da ordenação e libera a lista com o Free
+//
+//      5 - Chama uma rotina para imprimir o resultado dos 3 testes (Média, pior e melhor caso)
+//  }
 
 double insertionSort(unsigned long int *lista, unsigned long int tamanho){
     int aux, x, i, j;
@@ -248,7 +280,7 @@ void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
     for(int i=0; i<10; i++) {
         printf("Teste %d de 10 ordenando numeros gerado aleatoriamente...", i+1);
-        lista = listaAleatoria(lista, tamanho);
+        lista = listaAleatoria(tamanho);
         tempoUnico = insertionSort(lista, tamanho);
         somaTempo += tempoUnico;
         printf("\n\nTempo utilizado nesta ordenacao: %f\n\n", tempoUnico);
