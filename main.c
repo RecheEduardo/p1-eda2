@@ -40,7 +40,7 @@ int main()
                 printf("Algoritmo selecionado: SHELL SORT\n");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                shellSortTeste(lista, tamanho);
                 break;
 
             case 5: // MERGE SORT
@@ -48,7 +48,7 @@ int main()
                 printf("Algoritmo selecionado: MERGE SORT\n");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                mergeSortTeste(lista, tamanho);
                 break;
 
             case 6: // QUICK SORT [06]
@@ -79,7 +79,7 @@ int main()
                 printf("Algoritmo selecionado: RADIX SORT (LSD)\n");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                radixSortTeste(lista, tamanho);
                 break;
 
             case 10: // COUNTING SORT

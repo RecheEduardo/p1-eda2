@@ -16,9 +16,7 @@ void countingSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 
 // RADIX SORT
-unsigned int getMax(unsigned int *arr, unsigned int n);
-void countingSortRadix(unsigned int *arr, unsigned int n,unsigned int exp,unsigned int radix);
-void radixSort(unsigned int *arr, int n, int radix);
+void radixSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 
 // BUCKET SORT
@@ -27,13 +25,11 @@ void bucketSort(int *vetor, int tamanho);
 
 
 // SHELL SORT
-void InsertionSortShell(int arr[], int tam);
-void ShellSort(int arr[], int tam);
+void shellSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 
 // MERGE SORT
-void mergeSort(int *v, int inicio, int fim);
-void merge(int *v, int inicio, int meio, int fim);
+void mergeSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 
 // QUICK SORT

@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1745072325 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\algoritmos.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<sys/time.h>
+	"aux_p1.h"
+
+1745070407 c:\users\eduardo\desktop\p1_eda2\p1-eda2\aux_p1.h
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<conio.h>
+	<time.h>
+	<math.h>
+	"algoritmos.h"
+
+1745072363 c:\users\eduardo\desktop\p1_eda2\p1-eda2\algoritmos.h
+
+1745070407 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\aux_p1.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<conio.h>
+	<sys/time.h>
+	"aux_p1.h"
+
+1745072181 source:c:\users\eduardo\desktop\p1_eda2\p1-eda2\main.c
+	"aux_p1.h"
+	"algoritmos.h"
+

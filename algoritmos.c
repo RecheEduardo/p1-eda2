@@ -11,7 +11,7 @@
 
 
 // 02 - INSERTION SORT
-double insertionSort(unsigned long int *lista, unsigned long int tamanho){
+long double insertionSort(unsigned long int *lista, unsigned long int tamanho){
     int aux, x, i, j;
     struct timeval tempoInicial, tempoFinal;
 
@@ -201,7 +201,15 @@ void countingSortRadix(unsigned int *arr, unsigned int n, unsigned int exp, unsi
 }
 
 // A função principal para ordenar arr[] de tamanho n usando o Radix Sort
-void radixSort(unsigned int *arr, int n, int radix) {
+long double radixSort(unsigned int *arr, int n, int radix) {
+    int x;
+    struct timeval tempoInicial, tempoFinal;
+
+    x = gettimeofday(&tempoInicial, NULL); // Armazena o tempo em que a execução da ordenação começou
+    if(x == -1){
+        printf("\n-- Falha na coleta do tempo inicial de execucao, abortando... --");
+        return -1;
+    }
 
     // Encontra o número máximo para saber o número de
     // dígitos
@@ -212,6 +220,33 @@ void radixSort(unsigned int *arr, int n, int radix) {
     for (int exp = 1; m / exp > 0; exp *= radix){
         countingSortRadix(arr, n, exp, radix);
     }
+
+    x = gettimeofday(&tempoFinal, NULL); // Armazena o tempo em que a execução da ordenação terminou
+    if(x == -1){
+        printf("\n-- Falha na coleta do tempo final de execucao, abortando... --");
+        return -1;
+    }
+
+    return (tempoFinal.tv_sec + tempoFinal.tv_usec/1000000.0) - (tempoInicial.tv_sec + tempoInicial.tv_usec/1000000.0);
+}
+
+void radixSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+    double mediaTempo, somaTempo = 0, tempoUnico;
+    system("cls");
+    printf("### INICIANDO TESTES DE ORDENACAO COM RADIX SORT ###\n\n");
+
+    for(int i=0; i<10; i++) {
+        printf("\nTeste %d de 10 ordenando numeros gerados aleatoriamente...\n", i+1);
+        lista = listaAleatoria(tamanho);
+        tempoUnico = radixSort(lista, tamanho, 10);
+        somaTempo += tempoUnico;
+        printf("\nTempo utilizado nesta ordenacao: %f\n\n", tempoUnico);
+        free(lista);
+    }
+    mediaTempo = somaTempo / 10;
+    printf("Soma de todos os tempos: %f\n\n",somaTempo);
+    printf("Tempo medio de execucao: %f\n\n", mediaTempo);
+    system("pause");
 }
 
 
@@ -268,7 +303,7 @@ void bucketSort(int *vetor, int tamanho) {
 
 
 // 07 - SHELL SORT
-void InsertionSortShell(int arr[], int tam){ // Insertion sort para o Shell
+void InsertionSortShell(int *arr, int tam){ // Insertion sort para o Shell
     int i, j, atual;
     for(i = 0; i < tam; i++){
         atual = arr[i];
@@ -281,8 +316,16 @@ void InsertionSortShell(int arr[], int tam){ // Insertion sort para o Shell
     }
 }
 
-void ShellSort(int arr[], int tam) { // Shell sort, uma variação do Insertion sort
-    int intervalo, aux, i, j;
+long double shellSort(int *arr, int tam) { // Shell sort, uma variação do Insertion sort
+    int intervalo, aux, i, j, x;
+    struct timeval tempoInicial, tempoFinal;
+
+    x = gettimeofday(&tempoInicial, NULL); // Armazena o tempo em que a execução da ordenação começou
+    if(x == -1){
+        printf("\n-- Falha na coleta do tempo inicial de execucao, abortando... --");
+        return -1;
+    }
+
     for (intervalo = tam / 2; intervalo > 0; intervalo /= 2) {
         for (i = intervalo; i < tam; i++) {
             aux = arr[i];
@@ -292,19 +335,35 @@ void ShellSort(int arr[], int tam) { // Shell sort, uma variação do Insertion so
             arr[j] = aux;
         }
     }
+
+    x = gettimeofday(&tempoFinal, NULL); // Armazena o tempo em que a execução da ordenação terminou
+    if(x == -1){
+        printf("\n-- Falha na coleta do tempo final de execucao, abortando... --");
+        return -1;
+    }
+    return (tempoFinal.tv_sec + tempoFinal.tv_usec/1000000.0) - (tempoInicial.tv_sec + tempoInicial.tv_usec/1000000.0);
+}
+
+void shellSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+    double mediaTempo, somaTempo = 0, tempoUnico;
+    system("cls");
+    printf("### INICIANDO TESTES DE ORDENACAO COM SHELL SORT ###\n\n");
+
+    for(int i=0; i<10; i++) {
+        printf("\nTeste %d de 10 ordenando numeros gerados aleatoriamente...\n", i+1);
+        lista = listaAleatoria(tamanho);
+        tempoUnico = shellSort(lista, tamanho);
+        somaTempo += tempoUnico;
+        printf("\nTempo utilizado nesta ordenacao: %f\n\n", tempoUnico);
+        free(lista);
+    }
+    mediaTempo = somaTempo / 10;
+    printf("Soma de todos os tempos: %f\n\n",somaTempo);
+    printf("Tempo medio de execucao: %f\n\n", mediaTempo);
+    system("pause");
 }
 
 // 08 - MERGE SORT
-void mergeSort(int *v, int inicio, int fim){
-    int meio;
-    if(inicio < fim){
-        meio = (inicio + fim) / 2;
-        mergeSort(v, inicio, meio);
-        mergeSort(v, meio+1, fim);
-        merge(v, inicio, meio, fim);
-    }
-}
-
 void merge(int *v, int inicio, int meio, int fim){
     int *temp, p1, p2, tamanho,i ,j, k;
     int fim1 = 0, fim2 = 0;
@@ -343,6 +402,49 @@ void merge(int *v, int inicio, int meio, int fim){
         }
     }
     free(temp);//liberar o vetor temporario
+}
+
+long double mergeSort(int *v, int inicio, int fim){
+    int meio, x;
+    struct timeval tempoInicial, tempoFinal;
+
+    x = gettimeofday(&tempoInicial, NULL); // Armazena o tempo em que a execução da ordenação começou
+    if(x == -1){
+        printf("\n-- Falha na coleta do tempo inicial de execucao, abortando... --");
+        return -1;
+    }
+    if(inicio < fim){
+        meio = (inicio + fim) / 2;
+        mergeSort(v, inicio, meio);
+        mergeSort(v, meio+1, fim);
+        merge(v, inicio, meio, fim);
+    }
+
+    x = gettimeofday(&tempoFinal, NULL); // Armazena o tempo em que a execução da ordenação terminou
+    if(x == -1){
+        printf("\n-- Falha na coleta do tempo final de execucao, abortando... --");
+        return -1;
+    }
+    return (tempoFinal.tv_sec + tempoFinal.tv_usec/1000000.0) - (tempoInicial.tv_sec + tempoInicial.tv_usec/1000000.0);
+}
+
+void mergeSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+    double mediaTempo, somaTempo = 0, tempoUnico;
+    system("cls");
+    printf("### INICIANDO TESTES DE ORDENACAO COM SHELL SORT ###\n\n");
+
+    for(int i=0; i<10; i++) {
+        printf("\nTeste %d de 10 ordenando numeros gerados aleatoriamente...\n", i+1);
+        lista = listaAleatoria(tamanho);
+        tempoUnico = mergeSort(lista, 0, tamanho-1);
+        somaTempo += tempoUnico;
+        printf("\nTempo utilizado nesta ordenacao: %f\n\n", tempoUnico);
+        free(lista);
+    }
+    mediaTempo = somaTempo / 10;
+    printf("Soma de todos os tempos: %f\n\n",somaTempo);
+    printf("Tempo medio de execucao: %f\n\n", mediaTempo);
+    system("pause");
 }
 
 
