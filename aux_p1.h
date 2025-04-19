@@ -6,14 +6,7 @@
 #include <math.h>
 
 // ALGORITMOS DE ORDENACAO
-#include "radixSort.h"
-#include "quickSort.h"
-#include "shellSort.h"
-#include "bucketSort.h"
-#include "countingSort.h"
-#include "heapSort.h"
-#include "mergeSort.h"
-#include "timSort.h"
+#include "algoritimos.h"
 // Falta: Bubble Sort, Insertion Sort, Selection Sort
 
 
