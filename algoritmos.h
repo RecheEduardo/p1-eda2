@@ -12,7 +12,7 @@ void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 
 // COUNTING SORT
-void countingSort(int inputArray[], int numElementos);
+void countingSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 
 // RADIX SORT

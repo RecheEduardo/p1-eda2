@@ -87,7 +87,7 @@ int main()
                 printf("Algoritmo selecionado: COUNTING SORT\n");
                 tamanho = menuTamanho();
                 if(!tamanho) break;
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                countingSortTeste(lista, tamanho);
                 break;
 
             case 11: //TIM SORT

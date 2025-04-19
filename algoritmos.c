@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include <sys/time.h>
 #include "aux_p1.h"
 
@@ -63,7 +64,16 @@ void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 
 // 04 - COUNTING SORT
-void countingSort(int inputArray[], int numElementos) {
+long double countingSort(int *inputArray, int numElementos) {
+    int x;
+    struct timeval tempoInicial, tempoFinal;
+
+    x = gettimeofday(&tempoInicial, NULL); // Armazena o tempo em que a execução da ordenação começou
+    if(x == -1){
+        printf("\n-- Falha na coleta do tempo inicial de execucao, abortando... --");
+        return -1;
+    }
+
     // Encontrar o maior número no array
     int maiorNumero = 0;
     for (int i = 0; i < numElementos; i++){
@@ -108,9 +118,36 @@ void countingSort(int inputArray[], int numElementos) {
         inputArray[i] = arrayOrdenado[i];
     }
 
+    x = gettimeofday(&tempoFinal, NULL); // Armazena o tempo em que a execução da ordenação terminou
+    if(x == -1){
+        printf("\n-- Falha na coleta do tempo final de execucao, abortando... --");
+        return -1;
+    }
+
+    return (tempoFinal.tv_sec + tempoFinal.tv_usec/1000000.0) - (tempoInicial.tv_sec + tempoInicial.tv_usec/1000000.0);
+
     // Liberando a memória alocada
     free(auxArray);
     free(arrayOrdenado);
+}
+
+void countingSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+    double mediaTempo, somaTempo = 0, tempoUnico;
+    system("cls");
+    printf("### INICIANDO TESTES DE ORDENACAO COM COUNTING SORT ###\n\n");
+
+    for(int i=0; i<10; i++) {
+        printf("\nTeste %d de 10 ordenando numeros gerados aleatoriamente...\n", i+1);
+        lista = listaAleatoria(tamanho);
+        tempoUnico = countingSort(lista, tamanho);
+        somaTempo += tempoUnico;
+        printf("\nTempo utilizado nesta ordenacao: %f\n\n", tempoUnico);
+        free(lista);
+    }
+    mediaTempo = somaTempo / 10;
+    printf("Soma de todos os tempos: %f\n\n",somaTempo);
+    printf("Tempo medio de execucao: %f\n\n", mediaTempo);
+    system("pause");
 }
 
 
