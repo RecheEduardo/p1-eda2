@@ -73,10 +73,6 @@ unsigned int menuPrincipal(){
         else if(inputUser == 13){
             break;
         }
-
-        /*else {
-            printf("Comando Inválido!");
-        }*/
     }while(1);
     algoritmo = (((row + 1) * 3) + (col + 1)) - 3;
     return algoritmo;
@@ -245,3 +241,13 @@ void imprimirVetor(unsigned long int *vetor, unsigned long int tamanho){ // Roti
 //
 //      5 - Chama uma rotina para imprimir o resultado dos 3 testes (Média, pior e melhor caso)
 //  }
+
+void resultadoTestes(double tempo_medio, double tempo_melhor, double tempo_pior, unsigned long int tamanho){
+    printf("\n#####################################################\n");
+    printf("\n================ RESULTADO DOS TESTES ===============\n");
+    printf("\nMédio (%lu elementos): %fs", tamanho, tempo_medio);
+    printf("\nMelhor Caso: %fs", tempo_melhor);
+    printf("\nPior Caso: %fs", tempo_pior);
+    printf("\n\n#####################################################\n");
+    system("PAUSE");
+}
