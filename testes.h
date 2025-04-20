@@ -35,7 +35,7 @@ void quickSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 
 // HEAP SORT
-// a fazer............
+void heapSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 
 // TIM SORT

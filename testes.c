@@ -331,6 +331,46 @@ void quickSortTeste(unsigned long int *lista, unsigned long int tamanho){
     resultadoTestes(tempo_medio, tempo_LC, tempo_LD, tamanho);
 }
 // HEAP SORT
+void heapSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+        double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
+    struct timeval tempo_inicio, tempo_fim;
+
+    // CASO M�DIO
+    printf("\n\n   [");
+    for(int i = 0; i < 10; i++){
+        lista = listaAleatoria(tamanho);
+        gettimeofday(&tempo_inicio, NULL);
+        heapSortAscending(lista,tamanho);
+        gettimeofday(&tempo_fim, NULL);
+        tempo_medio = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+            (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0) + tempo_medio;
+        free(lista);
+        printf("====");
+    }
+    tempo_medio = tempo_medio / 10;
+
+    // MELHOR CASO
+    lista = listaCrescente(tamanho);
+    gettimeofday(&tempo_inicio, NULL);
+    heapSortAscending(lista, tamanho);
+    gettimeofday(&tempo_fim, NULL);
+    tempo_LC = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
+    free(lista);
+    printf("===");
+
+    // PIOR CASO
+    lista = listaDecrescente(tamanho);
+    gettimeofday(&tempo_inicio, NULL);
+    heapSortAscending(lista, tamanho);
+    gettimeofday(&tempo_fim, NULL);
+    tempo_LD = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
+    free(lista);
+    printf("===]\n");
+
+    resultadoTestes(tempo_medio, tempo_LC, tempo_LD, tamanho);
+}
 
 
 // TIM SORT
