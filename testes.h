@@ -31,7 +31,7 @@ void mergeSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 
 // QUICK SORT
-// a fazer............
+void quickSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 
 // HEAP SORT
