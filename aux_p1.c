@@ -12,7 +12,7 @@ unsigned int menuPrincipal(){
     int row = 0, col = 0, algoritmo = 0;
     char selection[4][3];
 
-    // Zera matriz de sele莽茫o
+    // Zera matriz de sele玢o
     for(int j = 0; j < 4; j++){
         for(int k = 0; k < 3; k++){
             selection[j][k] = ' ';
@@ -30,13 +30,13 @@ unsigned int menuPrincipal(){
         printf("\n%c COUNTING SORT %c TIM SORT       %c SAIR            ", selection[3][0], selection[3][1], selection[3][2]);
         printf("\n\n#####################################################\n");
 
-        // Ao clicar com as setas, envia 2 c贸digos, sendo o primeiro -32, e o segundo o c贸digo real
-        inputUser = getch(); // Captura o primeiro c贸digo
+        // Ao clicar com as setas, envia 2 c骴igos, sendo o primeiro -32, e o segundo o c骴igo real
+        inputUser = getch(); // Captura o primeiro c骴igo
         if(inputUser == -32){
-            inputUser = getch(); // Captura o c贸digo real
+            inputUser = getch(); // Captura o c骴igo real
 
             switch (inputUser) {
-                case 72: // C贸digo para seta pra cima
+                case 72: // C骴igo para seta pra cima
                     selection[row][col] = ' ';
                     row--;
                     if(row < 0)
@@ -44,7 +44,7 @@ unsigned int menuPrincipal(){
                     selection[row][col] = '>';
                     break;
 
-                case 80: // C贸digo para seta pra baixo
+                case 80: // C骴igo para seta pra baixo
                     selection[row][col] = ' ';
                     row++;
                     if(row > 3)
@@ -52,7 +52,7 @@ unsigned int menuPrincipal(){
                     selection[row][col] = '>';
                     break;
 
-                case 75: // C贸digo para seta pra esquerda
+                case 75: // C骴igo para seta pra esquerda
                     selection[row][col] = ' ';
                     col--;
                     if(col < 0)
@@ -60,7 +60,7 @@ unsigned int menuPrincipal(){
                     selection[row][col] = '>';
                     break;
 
-                case 77: // C贸digo para seta pra direita
+                case 77: // C骴igo para seta pra direita
                     selection[row][col] = ' ';
                     col++;
                     if(col > 2)
@@ -85,7 +85,7 @@ unsigned long int menuTamanho(){
     char selection[8];
     unsigned int tamanho;
 
-    // Zera vetor de sele莽茫o
+    // Zera vetor de sele玢o
     for(int i = 0; i < 8; i++) selection[i] = ' ';
     selection[0] = '>';
 
@@ -103,13 +103,13 @@ unsigned long int menuTamanho(){
         printf("\n\n%c VOLTAR AO MENU PRINCIPAL", selection[7]);
         printf("\n\n#####################################################\n");
 
-        // Ao clicar com as setas, envia 2 c贸digos, sendo o primeiro -32, e o segundo o c贸digo real
-        inputUser = getch(); // Captura o primeiro c贸digo
+        // Ao clicar com as setas, envia 2 c骴igos, sendo o primeiro -32, e o segundo o c骴igo real
+        inputUser = getch(); // Captura o primeiro c骴igo
         if(inputUser == -32){
-            inputUser = getch(); // Captura o c贸digo real
+            inputUser = getch(); // Captura o c骴igo real
 
             switch (inputUser) {
-                case 72: // C贸digo para seta pra cima
+                case 72: // C骴igo para seta pra cima
                     selection[row] = ' ';
                     row--;
                     if(row < 0)
@@ -117,7 +117,7 @@ unsigned long int menuTamanho(){
                     selection[row] = '>';
                     break;
 
-                case 80: // C贸digo para seta pra baixo
+                case 80: // C骴igo para seta pra baixo
                     selection[row]= ' ';
                     row++;
                     if(row > 7)
@@ -165,18 +165,18 @@ unsigned long int menuTamanho(){
             return 0;
     }
 
-    return -1; // O retorno acontece pelo switch, por茅m coloquei um aqui para o compilador n茫o ficar dando Warning
+    return -1; // O retorno acontece pelo switch, por閙 coloquei um aqui para o compilador n鉶 ficar dando Warning
 }
 
 unsigned long int *listaCrescente(unsigned long int tamanho){
     unsigned long int *lista = malloc(tamanho * sizeof(unsigned int));
 
     if (lista == NULL) {
-        printf("Erro na aloca莽茫o de mem贸ria!\n");
+        printf("Erro na aloca玢o de mem髍ia!\n");
         exit(1);
     }
 
-    // Gera um n煤mero aleat贸rio para cada item da lista
+    // Gera um n鷐ero aleat髍io para cada item da lista
     for(unsigned long int i = 0; i < tamanho; i++){
         lista[i] = i;
     }
@@ -187,11 +187,11 @@ unsigned long int *listaDecrescente(unsigned long int tamanho){
     unsigned long int *lista = malloc(tamanho * sizeof(unsigned int));
 
     if (lista == NULL) {
-        printf("Erro na aloca莽茫o de mem贸ria!\n");
+        printf("Erro na aloca玢o de mem髍ia!\n");
         exit(1);
     }
 
-    // Gera um n煤mero aleat贸rio para cada item da lista
+    // Gera um n鷐ero aleat髍io para cada item da lista
     for(unsigned long int i = 0; i < tamanho; i++){
         lista[i] = tamanho - i;
     }
@@ -227,7 +227,7 @@ void imprimirVetor(unsigned long int *vetor, unsigned long int tamanho){ // Roti
 void resultadoTestes(double tempo_medio, double tempo_LC, double tempo_LD, unsigned long int tamanho){
     printf("\n#####################################################\n");
     printf("\n================ RESULTADO DOS TESTES ===============\n");
-    printf("\nListas Aleat贸ria (M茅dia) (%lu elementos): %fs", tamanho, tempo_medio);
+    printf("\nListas Aleat髍ia (M閐ia) (%lu elementos): %fs", tamanho, tempo_medio);
     printf("\nLista Crescente: %fs", tempo_LC);
     printf("\nLista Decrescente: %fs", tempo_LD);
     printf("\n\n#####################################################\n");

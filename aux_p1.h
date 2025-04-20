@@ -10,7 +10,7 @@
 // Falta: Bubble Sort, Insertion Sort, Selection Sort
 
 
-// PROCEDIMENTO DE EXIBIR AS OPï¿½ï¿½ES DO PROGRAMA NA TELA
+// PROCEDIMENTO DE EXIBIR AS OPÇÕES DO PROGRAMA NA TELA
 unsigned int menuPrincipal();
 
 unsigned long int menuTamanho();
