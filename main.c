@@ -36,7 +36,7 @@ int main()
                 system("cls");
                 printf("\n#####################################################");
                 printf("\n======= Algoritmo selecionado: SELECTION SORT =======");
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                selectionSortTeste(lista, tamanho);
                 break;
 
             case 4: // SHELL SORT

@@ -630,3 +630,25 @@ void timSort(int array[], int n) { // Função que executa o método TimSort:
         }
     }
 }
+
+//#################################################################//
+// BIBLIOTECA SELECTION SORT
+void selectionSort(unsigned long int *v, unsigned long int n){
+    int menor, troca;
+    for(int i = 0; i < n - 1; i++){
+        // Procura o menor elemento em relação a i
+        menor = i;
+        for(int j = i + 1; j < n; j++){
+            if(v[j] < v[menor]){
+                menor = j;
+            }
+        }
+        // Troca os valores da posição atual com a "menor"
+        if(i != menor){
+            troca = v[i];
+            v[i] = v[menor];
+            v[menor] = troca;
+        }
+    }
+}
+//#################################################################//

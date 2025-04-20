@@ -6,11 +6,6 @@
 // INSERTION SORT
 void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
-// SELECTION SORT
-
-// a fazer............
-
-
 // COUNTING SORT
 void countingSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
@@ -51,3 +46,7 @@ int min(int a, int b);
 void insertionSortTim(int array[], int esq, int dir);
 void mergeSortTim(int array[], int x, int y, int z);
 void timSort(int array[], int n);
+
+// SELECTION SORT
+void selectionSort(unsigned long int *v, unsigned long int n);
+
