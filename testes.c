@@ -9,12 +9,55 @@
 // a fazer............
 
 
+// INSERTION SORT
+void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+    double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
+    struct timeval tempo_inicio, tempo_fim;
+
+    // CASO MÉDIO: LISTAS ALEATÓRIA
+    printf("\n\n   [");
+    for(int i = 0; i < 10; i++){
+        lista = listaAleatoria(tamanho);
+        gettimeofday(&tempo_inicio, NULL);
+        insertionSort(lista, tamanho);
+        gettimeofday(&tempo_fim, NULL);
+        tempo_medio = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+            (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0) + tempo_medio;
+        free(lista);
+        printf("====");
+    }
+    tempo_medio = tempo_medio / 10;
+
+    // CASO: LISTA CRESCENTE
+    lista = listaCrescente(tamanho);
+    gettimeofday(&tempo_inicio, NULL);
+    insertionSort(lista, tamanho);
+    gettimeofday(&tempo_fim, NULL);
+    tempo_LC = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
+    free(lista);
+    printf("===");
+
+    // CASO: LISTA DECRESCENTE
+    lista = listaDecrescente(tamanho);
+    gettimeofday(&tempo_inicio, NULL);
+    insertionSort(lista, tamanho);
+    gettimeofday(&tempo_fim, NULL);
+    tempo_LD = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
+    free(lista);
+    printf("===]\n");
+
+    resultadoTestes(tempo_medio, tempo_LC, tempo_LD, tamanho);
+}
+
+
 // SELECTION SORT
 void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho){
     double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
-    // CASO MÃ‰DIO
+    // CASO MÉDIO: LISTAS ALEATÓRIA
     printf("\n\n   [");
     for(int i = 0; i < 10; i++){
         lista = listaAleatoria(tamanho);
@@ -23,16 +66,16 @@ void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho){
         gettimeofday(&tempo_fim, NULL);
         tempo_medio = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
             (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0) + tempo_medio;
-        /*pprintf("\nTempo Lista AleatÃ³ria %d / 10 = %fs\n", i + 1, tempo_LA);
+        /*pprintf("\nTempo Lista Aleatória %d / 10 = %fs\n", i + 1, tempo_LA);
         system("PAUSE");*/
         free(lista);
         printf("====");
     }
     tempo_medio = tempo_medio / 10;
-    /*printf("\nTempo Lista AleatÃ³ria (MÃ©dia) = %f\n", tempo_medio);
+    /*printf("\nTempo Lista Aleatória (Média) = %f\n", tempo_medio);
     system("PAUSE");*/
 
-    // MELHOR CASO
+    // CASO: LISTA CRESCENTE
     lista = listaCrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
     selectionSort(lista, tamanho);
@@ -44,7 +87,7 @@ void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho){
     free(lista);
     printf("===");
 
-    // PIOR CASO
+    // CASO: LISTA DECRESCENTE
     lista = listaDecrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
     selectionSort(lista, tamanho);
@@ -61,55 +104,12 @@ void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho){
 }
 
 
-// INSERTION SORT
-void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho) {
-    double tempo_medio = 0, tempo_melhor = 0, tempo_pior = 0;
-    struct timeval tempo_inicio, tempo_fim;
-
-    // CASO Mï¿½DIO
-    printf("\n\n   [");
-    for(int i = 0; i < 10; i++){
-        lista = listaAleatoria(tamanho);
-        gettimeofday(&tempo_inicio, NULL);
-        insertionSort(lista, tamanho);
-        gettimeofday(&tempo_fim, NULL);
-        tempo_medio = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
-            (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0) + tempo_medio;
-        free(lista);
-        printf("====");
-    }
-    tempo_medio = tempo_medio / 10;
-
-    // MELHOR CASO
-    lista = listaCrescente(tamanho);
-    gettimeofday(&tempo_inicio, NULL);
-    insertionSort(lista, tamanho);
-    gettimeofday(&tempo_fim, NULL);
-    tempo_melhor = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
-        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
-    free(lista);
-    printf("===");
-
-    // PIOR CASO
-    lista = listaDecrescente(tamanho);
-    gettimeofday(&tempo_inicio, NULL);
-    insertionSort(lista, tamanho);
-    gettimeofday(&tempo_fim, NULL);
-    tempo_pior = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
-        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
-    free(lista);
-    printf("===]\n");
-
-    resultadoTestes(tempo_medio, tempo_melhor, tempo_pior, tamanho);
-}
-
-
 // COUNTING SORT
 void countingSortTeste(unsigned long int *lista, unsigned long int tamanho) {
-    double tempo_medio = 0, tempo_melhor = 0, tempo_pior = 0;
+    double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
-    // CASO Mï¿½DIO
+    // CASO MÉDIO: LISTAS ALEATÓRIA
     printf("\n\n   [");
     for(int i = 0; i < 10; i++){
         lista = listaAleatoria(tamanho);
@@ -123,36 +123,36 @@ void countingSortTeste(unsigned long int *lista, unsigned long int tamanho) {
     }
     tempo_medio = tempo_medio / 10;
 
-    // MELHOR CASO
+    // CASO: LISTA CRESCENTE
     lista = listaCrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
     countingSort(lista, tamanho);
     gettimeofday(&tempo_fim, NULL);
-    tempo_melhor = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+    tempo_LC = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
         (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
     free(lista);
     printf("===");
 
-    // PIOR CASO
+    // CASO: LISTA DECRESCENTE
     lista = listaDecrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
     countingSort(lista, tamanho);
     gettimeofday(&tempo_fim, NULL);
-    tempo_pior = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+    tempo_LD = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
         (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
     free(lista);
     printf("===]\n");
 
-    resultadoTestes(tempo_medio, tempo_melhor, tempo_pior, tamanho);
+    resultadoTestes(tempo_medio, tempo_LC, tempo_LD, tamanho);
 }
 
 
 // RADIX SORT
 void radixSortTeste(unsigned long int *lista, unsigned long int tamanho) {
-    double tempo_medio = 0, tempo_melhor = 0, tempo_pior = 0;
+    double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
-    // CASO Mï¿½DIO
+    // CASO MÉDIO: LISTAS ALEATÓRIA
     printf("\n\n   [");
     for(int i = 0; i < 10; i++){
         lista = listaAleatoria(tamanho);
@@ -166,27 +166,27 @@ void radixSortTeste(unsigned long int *lista, unsigned long int tamanho) {
     }
     tempo_medio = tempo_medio / 10;
 
-    // MELHOR CASO
+    // CASO: LISTA CRESCENTE
     lista = listaCrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
     radixSort(lista, tamanho, 10);
     gettimeofday(&tempo_fim, NULL);
-    tempo_melhor = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+    tempo_LC = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
         (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
     free(lista);
     printf("===");
 
-    // PIOR CASO
+    // CASO: LISTA DECRESCENTE
     lista = listaDecrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
     radixSort(lista, tamanho, 10);
     gettimeofday(&tempo_fim, NULL);
-    tempo_pior = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+    tempo_LD = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
         (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
     free(lista);
     printf("===]\n");
 
-    resultadoTestes(tempo_medio, tempo_melhor, tempo_pior, tamanho);
+    resultadoTestes(tempo_medio, tempo_LC, tempo_LD, tamanho);
 }
 
 
@@ -195,10 +195,10 @@ void radixSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 // SHELL SORT
 void shellSortTeste(unsigned long int *lista, unsigned long int tamanho) {
-        double tempo_medio = 0, tempo_melhor = 0, tempo_pior = 0;
+        double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
-    // CASO Mï¿½DIO
+    // CASO MÉDIO: LISTAS ALEATÓRIA
     printf("\n\n   [");
     for(int i = 0; i < 10; i++){
         lista = listaAleatoria(tamanho);
@@ -212,36 +212,36 @@ void shellSortTeste(unsigned long int *lista, unsigned long int tamanho) {
     }
     tempo_medio = tempo_medio / 10;
 
-    // MELHOR CASO
+    // CASO: LISTA CRESCENTE
     lista = listaCrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
     shellSort(lista, tamanho);
     gettimeofday(&tempo_fim, NULL);
-    tempo_melhor = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+    tempo_LC = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
         (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
     free(lista);
     printf("===");
 
-    // PIOR CASO
+    // CASO: LISTA DECRESCENTE
     lista = listaDecrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
     shellSort(lista, tamanho);
     gettimeofday(&tempo_fim, NULL);
-    tempo_pior = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+    tempo_LD = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
         (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
     free(lista);
     printf("===]\n");
 
-    resultadoTestes(tempo_medio, tempo_melhor, tempo_pior, tamanho);
+    resultadoTestes(tempo_medio, tempo_LC, tempo_LD, tamanho);
 }
 
 
 // MERGE SORT;
 void mergeSortTeste(unsigned long int *lista, unsigned long int tamanho) {
-        double tempo_medio = 0, tempo_melhor = 0, tempo_pior = 0;
+        double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
-    // CASO Mï¿½DIO
+    // CASO MÉDIO: LISTAS ALEATÓRIA
     printf("\n\n   [");
     for(int i = 0; i < 10; i++){
         lista = listaAleatoria(tamanho);
@@ -255,27 +255,27 @@ void mergeSortTeste(unsigned long int *lista, unsigned long int tamanho) {
     }
     tempo_medio = tempo_medio / 10;
 
-    // MELHOR CASO
+    // CASO: LISTA CRESCENTE
     lista = listaCrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
     mergeSort(lista, 0,tamanho - 1);
     gettimeofday(&tempo_fim, NULL);
-    tempo_melhor = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+    tempo_LC = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
         (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
     free(lista);
     printf("===");
 
-    // PIOR CASO
+    // CASO: LISTA DECRESCENTE
     lista = listaDecrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
     mergeSort(lista, 0,tamanho - 1);
     gettimeofday(&tempo_fim, NULL);
-    tempo_pior = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+    tempo_LD = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
         (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
     free(lista);
     printf("===]\n");
 
-    resultadoTestes(tempo_medio, tempo_melhor, tempo_pior, tamanho);
+    resultadoTestes(tempo_medio, tempo_LC, tempo_LD, tamanho);
 }
 
 
@@ -284,7 +284,7 @@ void quickSortTeste(unsigned long int *lista, unsigned long int tamanho){
     double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0, tempo_LA = 0;
     struct timeval tempo_inicio, tempo_fim;
 
-    // CASO MÃ‰DIO
+    // CASO MÉDIO: LISTAS ALEATÓRIA
     //printf("\n\n   [");
     for(int i = 0; i < 10; i++){
         lista = listaAleatoria(tamanho);
@@ -294,16 +294,16 @@ void quickSortTeste(unsigned long int *lista, unsigned long int tamanho){
         tempo_LA = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
             (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
         tempo_medio += tempo_LA;
-        printf("\nTempo Lista AleatÃ³ria %d / 10 = %fs\n", i + 1, tempo_LA);
+        printf("\nTempo Lista Aleatória %d / 10 = %fs\n", i + 1, tempo_LA);
         system("PAUSE");
         free(lista);
         //printf("====");
     }
     tempo_medio = tempo_medio / 10;
-    printf("\nTempo Lista AleatÃ³ria (MÃ©dia) = %fs\n", tempo_medio);
+    printf("\nTempo Lista Aleatória (Média) = %fs\n", tempo_medio);
     system("PAUSE");
 
-    // MELHOR CASO
+    // CASO: LISTA CRESCENTE
     lista = listaCrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
     quickSort(lista, 0, tamanho - 1);
@@ -315,7 +315,7 @@ void quickSortTeste(unsigned long int *lista, unsigned long int tamanho){
     free(lista);
     //printf("===");
 
-    // PIOR CASO
+    // CASO: LISTA DECRESCENTE
     lista = listaDecrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
     quickSort(lista, 0, tamanho - 1);
@@ -335,7 +335,7 @@ void heapSortTeste(unsigned long int *lista, unsigned long int tamanho) {
         double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
-    // CASO Mï¿½DIO
+    // CASO MÉDIO: LISTAS ALEATÓRIA
     printf("\n\n   [");
     for(int i = 0; i < 10; i++){
         lista = listaAleatoria(tamanho);
@@ -349,7 +349,7 @@ void heapSortTeste(unsigned long int *lista, unsigned long int tamanho) {
     }
     tempo_medio = tempo_medio / 10;
 
-    // MELHOR CASO
+    // CASO: LISTA CRESCENTE
     lista = listaCrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
     heapSortAscending(lista, tamanho);
@@ -359,7 +359,7 @@ void heapSortTeste(unsigned long int *lista, unsigned long int tamanho) {
     free(lista);
     printf("===");
 
-    // PIOR CASO
+    // CASO: LISTA DECRESCENTE
     lista = listaDecrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
     heapSortAscending(lista, tamanho);
@@ -377,25 +377,25 @@ void heapSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 // FLUXO DOS TESTES
 //  void nomeDoAlgoritmoTeste(unsigned long int *lista, unsigned long int tamanho){
-//      1 - Teste com a lista aleatÃ³ria (MÃ‰DIA) (Testar 10 vezes)
-//        { a - Cria a lista aleatÃ³ria
+//      1 - Teste com a lista aleatória (MÉDIA) (Testar 10 vezes)
+//        { a - Cria a lista aleatória
 //          b - Inicia o temporizador
-//          c - Inicia a ordenaÃ§Ã£o do vetor
-//          d - Registra o tempo da ordenaÃ§Ã£o e libera a lista com o Free } x10
-//      2 - Feito os 10 testes da lista aleatÃ³ria, tirar a mÃ©dia dos resultados e registra em uma variavel
+//          c - Inicia a ordenação do vetor
+//          d - Registra o tempo da ordenação e libera a lista com o Free } x10
+//      2 - Feito os 10 testes da lista aleatória, tirar a média dos resultados e registra em uma variavel
 //
 //      3 - Agora faz o teste com a lista crescente (MELHOR CASO)
 //          a - Cria a lista crescente
 //          b - Inicia o temporizador
-//          c - Inicia a ordenaÃ§Ã£o do vetor
-//          d - Registra o tempo da ordenaÃ§Ã£o e libera a lista com o Free
+//          c - Inicia a ordenação do vetor
+//          d - Registra o tempo da ordenação e libera a lista com o Free
 //
 //      4 - Agora faz o teste com a lista decrescente (PIOR CASO)
 //          a - Cria a lista crescente
 //          b - Inicia o temporizador
-//          c - Inicia a ordenaÃ§Ã£o do vetor
-//          d - Registra o tempo da ordenaÃ§Ã£o e libera a lista com o Free
+//          c - Inicia a ordenação do vetor
+//          d - Registra o tempo da ordenação e libera a lista com o Free
 //
-//      5 - Chama uma rotina para imprimir o resultado dos 3 testes (MÃ©dia, pior e melhor caso)
+//      5 - Chama uma rotina para imprimir o resultado dos 3 testes (Média, pior e melhor caso)
 //  }
 
