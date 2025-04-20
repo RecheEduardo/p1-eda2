@@ -73,10 +73,6 @@ unsigned int menuPrincipal(){
         else if(inputUser == 13){
             break;
         }
-
-        /*else {
-            printf("Comando Inválido!");
-        }*/
     }while(1);
     algoritmo = (((row + 1) * 3) + (col + 1)) - 3;
     return algoritmo;
@@ -223,6 +219,16 @@ void imprimirVetor(unsigned long int *vetor, unsigned long int tamanho){ // Roti
     }
 }
 
+void resultadoTestes(double tempo_medio, double tempo_melhor, double tempo_pior, unsigned long int tamanho){
+    printf("\n#####################################################\n");
+    printf("\n================ RESULTADO DOS TESTES ===============\n");
+    printf("\nMédio (%lu elementos): %fs", tamanho, tempo_medio);
+    printf("\nMelhor Caso: %fs", tempo_melhor);
+    printf("\nPior Caso: %fs", tempo_pior);
+    printf("\n\n#####################################################\n");
+    system("PAUSE");
+}
+
 //  void nomeDoAlgoritmoTeste(unsigned long int *lista, unsigned long int tamanho){
 //      1 - Teste com a lista aleatória (MÉDIA) (Testar 10 vezes)
 //        { a - Cria a lista aleatória
@@ -245,3 +251,55 @@ void imprimirVetor(unsigned long int *vetor, unsigned long int tamanho){ // Roti
 //
 //      5 - Chama uma rotina para imprimir o resultado dos 3 testes (Média, pior e melhor caso)
 //  }
+
+// ROTINA DE TESTE DO SELECTION SORT
+void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho){
+    double tempo_medio = 0, tempo_melhor = 0, tempo_pior = 0;
+    struct timeval tempo_inicio, tempo_fim;
+
+    // CASO MÉDIO
+    printf("\n\n   [");
+    for(int i = 0; i < 10; i++){
+        lista = listaAleatoria(tamanho);
+        gettimeofday(&tempo_inicio, NULL);
+        selectionSort(lista, tamanho);
+        gettimeofday(&tempo_fim, NULL);
+        tempo_medio = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+            (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0) + tempo_medio;
+        /*printf("\nTempo medio somados %d / 10 = %f\n", i + 1, taux);
+        system("PAUSE");*/
+        free(lista);
+        printf("====");
+    }
+    tempo_medio = tempo_medio / 10;
+    /*printf("\nTempo medio = %f\n", tempo_medio);
+    system("PAUSE");*/
+
+    // MELHOR CASO
+    lista = listaCrescente(tamanho);
+    gettimeofday(&tempo_inicio, NULL);
+    selectionSort(lista, tamanho);
+    gettimeofday(&tempo_fim, NULL);
+    tempo_melhor = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
+    /*printf("\nTempo melhor = %f\n", tempo_melhor);
+    system("PAUSE");*/
+    free(lista);
+    printf("===");
+
+
+    // PIOR CASO
+    lista = listaDecrescente(tamanho);
+    gettimeofday(&tempo_inicio, NULL);
+    selectionSort(lista, tamanho);
+    gettimeofday(&tempo_fim, NULL);
+    tempo_pior = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
+    /*printf("\nTempo pior = %f\n", tempo_pior);
+    system("PAUSE");*/
+
+    free(lista);
+    printf("===]\n");
+
+    resultadoTestes(tempo_medio, tempo_melhor, tempo_pior, tamanho);
+}
