@@ -58,9 +58,75 @@ void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 }
 
 // 03 - SELECTION SORT
+void selectionSort(unsigned long int *v, unsigned long int n){
+    int menor, troca;
+    for(int i = 0; i < n - 1; i++){
+        // Procura o menor elemento em relação a i
+        menor = i;
+        for(int j = i + 1; j < n; j++){
+            if(v[j] < v[menor]){
+                menor = j;
+            }
+        }
+        // Troca os valores da posição atual com a "menor"
+        if(i != menor){
+            troca = v[i];
+            v[i] = v[menor];
+            v[menor] = troca;
+        }
+    }
+}
+
+void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho){
+    double tempo_medio = 0, tempo_melhor = 0, tempo_pior = 0;
+    struct timeval tempo_inicio, tempo_fim;
+
+    // CASO MÉDIO
+    printf("\n\n   [");
+    for(int i = 0; i < 10; i++){
+        lista = listaAleatoria(tamanho);
+        gettimeofday(&tempo_inicio, NULL);
+        selectionSort(lista, tamanho);
+        gettimeofday(&tempo_fim, NULL);
+        tempo_medio = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+            (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0) + tempo_medio;
+        /*printf("\nTempo medio somados %d / 10 = %f\n", i + 1, taux);
+        system("PAUSE");*/
+        free(lista);
+        printf("====");
+    }
+    tempo_medio = tempo_medio / 10;
+    /*printf("\nTempo medio = %f\n", tempo_medio);
+    system("PAUSE");*/
+
+    // MELHOR CASO
+    lista = listaCrescente(tamanho);
+    gettimeofday(&tempo_inicio, NULL);
+    selectionSort(lista, tamanho);
+    gettimeofday(&tempo_fim, NULL);
+    tempo_melhor = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
+    /*printf("\nTempo melhor = %f\n", tempo_melhor);
+    system("PAUSE");*/
+    free(lista);
+    printf("===");
 
 
-// a fazer............
+    // PIOR CASO
+    lista = listaDecrescente(tamanho);
+    gettimeofday(&tempo_inicio, NULL);
+    selectionSort(lista, tamanho);
+    gettimeofday(&tempo_fim, NULL);
+    tempo_pior = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
+    /*printf("\nTempo pior = %f\n", tempo_pior);
+    system("PAUSE");*/
+
+    free(lista);
+    printf("===]\n");
+
+    resultadoTestes(tempo_medio, tempo_melhor, tempo_pior, tamanho);
+}
 
 
 // 04 - COUNTING SORT
@@ -630,25 +696,3 @@ void timSort(int array[], int n) { // Função que executa o método TimSort:
         }
     }
 }
-
-//#################################################################//
-// BIBLIOTECA SELECTION SORT
-void selectionSort(unsigned long int *v, unsigned long int n){
-    int menor, troca;
-    for(int i = 0; i < n - 1; i++){
-        // Procura o menor elemento em relação a i
-        menor = i;
-        for(int j = i + 1; j < n; j++){
-            if(v[j] < v[menor]){
-                menor = j;
-            }
-        }
-        // Troca os valores da posição atual com a "menor"
-        if(i != menor){
-            troca = v[i];
-            v[i] = v[menor];
-            v[menor] = troca;
-        }
-    }
-}
-//#################################################################//

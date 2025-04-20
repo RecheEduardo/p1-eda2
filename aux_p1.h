@@ -25,8 +25,4 @@ void imprimirVetor(unsigned long int *vetor,unsigned long int tamanho); // Rotin
 
 void resultadoTestes(double tempo_medio, double tempo_melhor, double tempo_pior, unsigned long int tamanho);
 
-void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho);
-
-void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho);
-
 // nomeDoAlgoritmoTeste(unsigned long int *lista, unsigned long int tamanho);

@@ -1,10 +1,15 @@
 // BUBBLE SORT
-
 // a fazer............
+
+
+// SELECTION SORT
+void selectionSort(unsigned long int *v, unsigned long int n);
+void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 
 // INSERTION SORT
 void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho);
+
 
 // COUNTING SORT
 void countingSortTeste(unsigned long int *lista, unsigned long int tamanho);
@@ -46,7 +51,3 @@ int min(int a, int b);
 void insertionSortTim(int array[], int esq, int dir);
 void mergeSortTim(int array[], int x, int y, int z);
 void timSort(int array[], int n);
-
-// SELECTION SORT
-void selectionSort(unsigned long int *v, unsigned long int n);
-
