@@ -24,11 +24,3 @@ unsigned long int *listaAleatoria(unsigned long int tamanho);
 void imprimirVetor(unsigned long int *vetor,unsigned long int tamanho); // Rotina para teste
 
 void resultadoTestes(double tempo_medio, double tempo_LC, double tempo_LD, unsigned long int tamanho);
-
-//void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho);
-
-void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho);
-
-void quickSortTeste(unsigned long int *lista, unsigned long int tamanho);
-
-// nomeDoAlgoritmoTeste(unsigned long int *lista, unsigned long int tamanho);

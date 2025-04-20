@@ -1,6 +1,5 @@
 #include "aux_p1.h"
-#include "algoritmos.h"
-
+#include "testes.h"
 int main()
 {
     unsigned long int *lista;
