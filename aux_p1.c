@@ -82,11 +82,11 @@ unsigned int menuPrincipal(){
 unsigned long int menuTamanho(){
     char inputUser;
     int row = 0;
-    char selection[7];
+    char selection[8];
     unsigned int tamanho;
 
     // Zera vetor de seleção
-    for(int i = 0; i < 7; i++) selection[i] = ' ';
+    for(int i = 0; i < 8; i++) selection[i] = ' ';
     selection[0] = '>';
 
     do{
@@ -94,12 +94,13 @@ unsigned long int menuTamanho(){
         printf("\n#####################################################");
         printf("\n======= SELECIONE O TAMANHO DO VETOR DE TESTES ======\n");
         printf("\n%c 10.000      ELEMENTOS", selection[0]);
-        printf("\n%c 50.000      ELEMENTOS", selection[1]);
-        printf("\n%c 100.000     ELEMENTOS", selection[2]);
-        printf("\n%c 200.000     ELEMENTOS", selection[3]);
-        printf("\n%c 500.000     ELEMENTOS", selection[4]);
-        printf("\n%c 1.000.000   ELEMENTOS", selection[5]);
-        printf("\n\n%c VOLTAR AO MENU PRINCIPAL", selection[6]);
+        printf("\n%c 30.000      ELEMENTOS", selection[1]);
+        printf("\n%c 50.000      ELEMENTOS", selection[2]);
+        printf("\n%c 100.000     ELEMENTOS", selection[3]);
+        printf("\n%c 200.000     ELEMENTOS", selection[4]);
+        printf("\n%c 500.000     ELEMENTOS", selection[5]);
+        printf("\n%c 1.000.000   ELEMENTOS", selection[6]);
+        printf("\n\n%c VOLTAR AO MENU PRINCIPAL", selection[7]);
         printf("\n\n#####################################################\n");
 
         // Ao clicar com as setas, envia 2 códigos, sendo o primeiro -32, e o segundo o código real
@@ -112,14 +113,14 @@ unsigned long int menuTamanho(){
                     selection[row] = ' ';
                     row--;
                     if(row < 0)
-                        row = 6;
+                        row = 7;
                     selection[row] = '>';
                     break;
 
                 case 80: // Código para seta pra baixo
                     selection[row]= ' ';
                     row++;
-                    if(row > 6)
+                    if(row > 7)
                         row = 0;
                     selection[row] = '>';
                     break;
@@ -137,26 +138,30 @@ unsigned long int menuTamanho(){
             return tamanho;
 
         case 1:
-            tamanho = 50000;
+            tamanho = 30000;
             return tamanho;
 
         case 2:
-            tamanho = 100000;
+            tamanho = 50000;
             return tamanho;
 
         case 3:
-            tamanho = 200000;
+            tamanho = 100000;
             return tamanho;
 
         case 4:
-            tamanho = 500000;
+            tamanho = 200000;
             return tamanho;
 
         case 5:
-            tamanho = 1000000;
+            tamanho = 500000;
             return tamanho;
 
         case 6:
+            tamanho = 1000000;
+            return tamanho;
+
+        case 7:
             return 0;
     }
 
@@ -219,35 +224,12 @@ void imprimirVetor(unsigned long int *vetor, unsigned long int tamanho){ // Roti
     }
 }
 
-void resultadoTestes(double tempo_medio, double tempo_melhor, double tempo_pior, unsigned long int tamanho){
+void resultadoTestes(double tempo_medio, double tempo_LC, double tempo_LD, unsigned long int tamanho){
     printf("\n#####################################################\n");
     printf("\n================ RESULTADO DOS TESTES ===============\n");
-    printf("\nMédio (%lu elementos): %fs", tamanho, tempo_medio);
-    printf("\nMelhor Caso: %fs", tempo_melhor);
-    printf("\nPior Caso: %fs", tempo_pior);
+    printf("\nListas Aleatória (Média) (%lu elementos): %fs", tamanho, tempo_medio);
+    printf("\nLista Crescente: %fs", tempo_LC);
+    printf("\nLista Decrescente: %fs", tempo_LD);
     printf("\n\n#####################################################\n");
     system("PAUSE");
 }
-
-//  void nomeDoAlgoritmoTeste(unsigned long int *lista, unsigned long int tamanho){
-//      1 - Teste com a lista aleatória (MÉDIA) (Testar 10 vezes)
-//        { a - Cria a lista aleatória
-//          b - Inicia o temporizador
-//          c - Inicia a ordenação do vetor
-//          d - Registra o tempo da ordenação e libera a lista com o Free } x10
-//      2 - Feito os 10 testes da lista aleatória, tirar a média dos resultados e registra em uma variavel
-//
-//      3 - Agora faz o teste com a lista crescente (MELHOR CASO)
-//          a - Cria a lista crescente
-//          b - Inicia o temporizador
-//          c - Inicia a ordenação do vetor
-//          d - Registra o tempo da ordenação e libera a lista com o Free
-//
-//      4 - Agora faz o teste com a lista decrescente (PIOR CASO)
-//          a - Cria a lista crescente
-//          b - Inicia o temporizador
-//          c - Inicia a ordenação do vetor
-//          d - Registra o tempo da ordenação e libera a lista com o Free
-//
-//      5 - Chama uma rotina para imprimir o resultado dos 3 testes (Média, pior e melhor caso)
-//  }

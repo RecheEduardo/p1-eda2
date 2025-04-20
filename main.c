@@ -62,7 +62,7 @@ int main()
                 system("cls");
                 printf("\n#####################################################");
                 printf("\n========= Algoritmo selecionado: QUICK SORT =========");
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                quickSortTeste(lista, tamanho);
                 break;
 
             case 7: // HEAP SORT
