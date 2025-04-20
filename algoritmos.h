@@ -3,7 +3,6 @@
 
 
 // SELECTION SORT
-void selectionSort(unsigned long int *v, unsigned long int n);
 void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 
