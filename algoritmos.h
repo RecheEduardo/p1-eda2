@@ -3,50 +3,41 @@
 
 
 // SELECTION SORT
-void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho);
+void selectionSort(unsigned long int *v, unsigned long int n);
 
 
 // INSERTION SORT
-void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho);
+long double insertionSort(unsigned long int *lista, unsigned long int tamanho);
 
 
 // COUNTING SORT
-void countingSortTeste(unsigned long int *lista, unsigned long int tamanho);
+long double countingSort(int *inputArray, int numElementos);
 
 
 // RADIX SORT
-void radixSortTeste(unsigned long int *lista, unsigned long int tamanho);
+long double radixSort(unsigned int *arr, int n, int radix) ;
 
 
 // BUCKET SORT
-void insertionSortBucket(int *array, int tamanho);
 void bucketSort(int *vetor, int tamanho);
 
 
 // SHELL SORT
-void shellSortTeste(unsigned long int *lista, unsigned long int tamanho);
+long double shellSort(int *arr, int tam);
 
 
 // MERGE SORT
-void mergeSortTeste(unsigned long int *lista, unsigned long int tamanho);
+long double mergeSort(int *v, int inicio, int fim);
 
 
 // QUICK SORT
-void troca(int *a, int *b);
-int divisao(int arr[], int low, int high);
 void quickSort(int arr[], int low, int high);
 
 
 // HEAP SORT
-void swap(int *a, int *b);
-void maxHeapify(int arr[], int n, int i);
-void minHeapify(int arr[], int n, int i);
 void heapSortAscending(int arr[], int n);
 void heapSortDescending(int arr[], int n);
 
 
 // TIM SORT
-int min(int a, int b);
-void insertionSortTim(int array[], int esq, int dir);
-void mergeSortTim(int array[], int x, int y, int z);
 void timSort(int array[], int n);

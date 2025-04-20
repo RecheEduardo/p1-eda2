@@ -5,8 +5,6 @@
 #include "aux_p1.h"
 
 // 01 - BUBBLE SORT
-
-
 // a fazer............
 
 
@@ -38,24 +36,6 @@ long double insertionSort(unsigned long int *lista, unsigned long int tamanho){
     return (tempoFinal.tv_sec + tempoFinal.tv_usec/1000000.0) - (tempoInicial.tv_sec + tempoInicial.tv_usec/1000000.0);
 }
 
-void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho) {
-    double mediaTempo, somaTempo = 0, tempoUnico;
-    system("cls");
-    printf("### INICIANDO TESTES DE ORDENACAO COM INSERTION SORT ###\n\n");
-
-    for(int i=0; i<10; i++) {
-        printf("\nTeste %d de 10 ordenando numeros gerados aleatoriamente...\n", i+1);
-        lista = listaAleatoria(tamanho);
-        tempoUnico = insertionSort(lista, tamanho);
-        somaTempo += tempoUnico;
-        printf("\nTempo utilizado nesta ordenacao: %f\n\n", tempoUnico);
-        free(lista);
-    }
-    mediaTempo = somaTempo / 10;
-    printf("Soma de todos os tempos: %f\n\n",somaTempo);
-    printf("Tempo medio de execucao: %f\n\n", mediaTempo);
-    system("pause");
-}
 
 // 03 - SELECTION SORT
 void selectionSort(unsigned long int *v, unsigned long int n){
@@ -75,57 +55,6 @@ void selectionSort(unsigned long int *v, unsigned long int n){
             v[menor] = troca;
         }
     }
-}
-
-void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho){
-    double tempo_medio = 0, tempo_melhor = 0, tempo_pior = 0;
-    struct timeval tempo_inicio, tempo_fim;
-
-    // CASO MÉDIO
-    printf("\n\n   [");
-    for(int i = 0; i < 10; i++){
-        lista = listaAleatoria(tamanho);
-        gettimeofday(&tempo_inicio, NULL);
-        selectionSort(lista, tamanho);
-        gettimeofday(&tempo_fim, NULL);
-        tempo_medio = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
-            (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0) + tempo_medio;
-        /*printf("\nTempo medio somados %d / 10 = %f\n", i + 1, taux);
-        system("PAUSE");*/
-        free(lista);
-        printf("====");
-    }
-    tempo_medio = tempo_medio / 10;
-    /*printf("\nTempo medio = %f\n", tempo_medio);
-    system("PAUSE");*/
-
-    // MELHOR CASO
-    lista = listaCrescente(tamanho);
-    gettimeofday(&tempo_inicio, NULL);
-    selectionSort(lista, tamanho);
-    gettimeofday(&tempo_fim, NULL);
-    tempo_melhor = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
-        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
-    /*printf("\nTempo melhor = %f\n", tempo_melhor);
-    system("PAUSE");*/
-    free(lista);
-    printf("===");
-
-
-    // PIOR CASO
-    lista = listaDecrescente(tamanho);
-    gettimeofday(&tempo_inicio, NULL);
-    selectionSort(lista, tamanho);
-    gettimeofday(&tempo_fim, NULL);
-    tempo_pior = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
-        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
-    /*printf("\nTempo pior = %f\n", tempo_pior);
-    system("PAUSE");*/
-
-    free(lista);
-    printf("===]\n");
-
-    resultadoTestes(tempo_medio, tempo_melhor, tempo_pior, tamanho);
 }
 
 
@@ -195,25 +124,6 @@ long double countingSort(int *inputArray, int numElementos) {
     // Liberando a memória alocada
     free(auxArray);
     free(arrayOrdenado);
-}
-
-void countingSortTeste(unsigned long int *lista, unsigned long int tamanho) {
-    double mediaTempo, somaTempo = 0, tempoUnico;
-    system("cls");
-    printf("### INICIANDO TESTES DE ORDENACAO COM COUNTING SORT ###\n\n");
-
-    for(int i=0; i<10; i++) {
-        printf("\nTeste %d de 10 ordenando numeros gerados aleatoriamente...\n", i+1);
-        lista = listaAleatoria(tamanho);
-        tempoUnico = countingSort(lista, tamanho);
-        somaTempo += tempoUnico;
-        printf("\nTempo utilizado nesta ordenacao: %f\n\n", tempoUnico);
-        free(lista);
-    }
-    mediaTempo = somaTempo / 10;
-    printf("Soma de todos os tempos: %f\n\n",somaTempo);
-    printf("Tempo medio de execucao: %f\n\n", mediaTempo);
-    system("pause");
 }
 
 
@@ -296,25 +206,6 @@ long double radixSort(unsigned int *arr, int n, int radix) {
     return (tempoFinal.tv_sec + tempoFinal.tv_usec/1000000.0) - (tempoInicial.tv_sec + tempoInicial.tv_usec/1000000.0);
 }
 
-void radixSortTeste(unsigned long int *lista, unsigned long int tamanho) {
-    double mediaTempo, somaTempo = 0, tempoUnico;
-    system("cls");
-    printf("### INICIANDO TESTES DE ORDENACAO COM RADIX SORT ###\n\n");
-
-    for(int i=0; i<10; i++) {
-        printf("\nTeste %d de 10 ordenando numeros gerados aleatoriamente...\n", i+1);
-        lista = listaAleatoria(tamanho);
-        tempoUnico = radixSort(lista, tamanho, 10);
-        somaTempo += tempoUnico;
-        printf("\nTempo utilizado nesta ordenacao: %f\n\n", tempoUnico);
-        free(lista);
-    }
-    mediaTempo = somaTempo / 10;
-    printf("Soma de todos os tempos: %f\n\n",somaTempo);
-    printf("Tempo medio de execucao: %f\n\n", mediaTempo);
-    system("pause");
-}
-
 
 // 06 - BUCKET SORT
 #define NUM_BUCKETS 10  // Define o número de baldes
@@ -359,7 +250,7 @@ void bucketSort(int *vetor, int tamanho) {
     // Reconstruindo o vetor com os valores ordenados
     int index = 0; // Índice do vetor
     for (int i = 0; i < NUM_BUCKETS; i++) {
-        insertionSort(balde[i].valor, balde[i].tamanho); // Ordena os elementos do balde
+        insertionSortBucket(balde[i].valor, balde[i].tamanho); // Ordena os elementos do balde
         for (int j = 0; j < balde[i].tamanho; j++) {
             vetor[index++] = balde[i].valor[j]; // Passa os elementos ordenados para o vetor original
         }
@@ -408,25 +299,6 @@ long double shellSort(int *arr, int tam) { // Shell sort, uma variação do Insert
         return -1;
     }
     return (tempoFinal.tv_sec + tempoFinal.tv_usec/1000000.0) - (tempoInicial.tv_sec + tempoInicial.tv_usec/1000000.0);
-}
-
-void shellSortTeste(unsigned long int *lista, unsigned long int tamanho) {
-    double mediaTempo, somaTempo = 0, tempoUnico;
-    system("cls");
-    printf("### INICIANDO TESTES DE ORDENACAO COM SHELL SORT ###\n\n");
-
-    for(int i=0; i<10; i++) {
-        printf("\nTeste %d de 10 ordenando numeros gerados aleatoriamente...\n", i+1);
-        lista = listaAleatoria(tamanho);
-        tempoUnico = shellSort(lista, tamanho);
-        somaTempo += tempoUnico;
-        printf("\nTempo utilizado nesta ordenacao: %f\n\n", tempoUnico);
-        free(lista);
-    }
-    mediaTempo = somaTempo / 10;
-    printf("Soma de todos os tempos: %f\n\n",somaTempo);
-    printf("Tempo medio de execucao: %f\n\n", mediaTempo);
-    system("pause");
 }
 
 // 08 - MERGE SORT
@@ -492,25 +364,6 @@ long double mergeSort(int *v, int inicio, int fim){
         return -1;
     }
     return (tempoFinal.tv_sec + tempoFinal.tv_usec/1000000.0) - (tempoInicial.tv_sec + tempoInicial.tv_usec/1000000.0);
-}
-
-void mergeSortTeste(unsigned long int *lista, unsigned long int tamanho) {
-    double mediaTempo, somaTempo = 0, tempoUnico;
-    system("cls");
-    printf("### INICIANDO TESTES DE ORDENACAO COM SHELL SORT ###\n\n");
-
-    for(int i=0; i<10; i++) {
-        printf("\nTeste %d de 10 ordenando numeros gerados aleatoriamente...\n", i+1);
-        lista = listaAleatoria(tamanho);
-        tempoUnico = mergeSort(lista, 0, tamanho-1);
-        somaTempo += tempoUnico;
-        printf("\nTempo utilizado nesta ordenacao: %f\n\n", tempoUnico);
-        free(lista);
-    }
-    mediaTempo = somaTempo / 10;
-    printf("Soma de todos os tempos: %f\n\n",somaTempo);
-    printf("Tempo medio de execucao: %f\n\n", mediaTempo);
-    system("pause");
 }
 
 

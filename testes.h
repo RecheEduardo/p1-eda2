@@ -1,0 +1,42 @@
+// BUBBLE SORT
+// a fazer............
+
+
+// SELECTION SORT
+void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho);
+
+
+// INSERTION SORT
+void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho);
+
+
+// COUNTING SORT
+void countingSortTeste(unsigned long int *lista, unsigned long int tamanho);
+
+
+// RADIX SORT
+void radixSortTeste(unsigned long int *lista, unsigned long int tamanho);
+
+
+// BUCKET SORT
+// a fazer............
+
+
+// SHELL SORT
+void shellSortTeste(unsigned long int *lista, unsigned long int tamanho);
+
+
+// MERGE SORT;
+void mergeSortTeste(unsigned long int *lista, unsigned long int tamanho);
+
+
+// QUICK SORT
+// a fazer............
+
+
+// HEAP SORT
+// a fazer............
+
+
+// TIM SORT
+// a fazer............
