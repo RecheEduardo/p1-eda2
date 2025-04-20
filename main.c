@@ -71,7 +71,7 @@ int main()
                 system("cls");
                 printf("\n#####################################################");
                 printf("\n========== Algoritmo selecionado: HEAP SORT =========");
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                heapSortTeste(lista, tamanho);
                 break;
 
             case 8: // BUCKET SORT

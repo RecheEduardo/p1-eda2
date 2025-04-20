@@ -31,17 +31,21 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="main.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="aux_p1.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="aux_p1.h" />
 		<Unit filename="algoritmos.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="algoritmos.h" />
+		<Unit filename="aux_p1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="aux_p1.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="testes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="testes.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
