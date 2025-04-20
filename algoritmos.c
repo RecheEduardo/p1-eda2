@@ -56,13 +56,27 @@ void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho) {
     printf("Tempo medio de execucao: %f\n\n", mediaTempo);
     system("pause");
 }
-
+//#################################################################//
 // 03 - SELECTION SORT
-
-
-// a fazer............
-
-
+void selectionSort(unsigned long int *v, unsigned long int n){
+    int menor, troca;
+    for(int i = 0; i < n - 1; i++){
+        // Procura o menor elemento em relação a i
+        menor = i;
+        for(int j = i + 1; j < n; j++){
+            if(v[j] < v[menor]){
+                menor = j;
+            }
+        }
+        // Troca os valores da posição atual com a "menor"
+        if(i != menor){
+            troca = v[i];
+            v[i] = v[menor];
+            v[menor] = troca;
+        }
+    }
+}
+//#################################################################//
 // 04 - COUNTING SORT
 long double countingSort(int *inputArray, int numElementos) {
     int x;
@@ -449,15 +463,16 @@ void mergeSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 
 // 09 - QUICK SORT
-void troca(int *a, int *b) { // Função para trocar dois elementos no array
-    int temp = *a;
+// Função para trocar dois elementos de posição
+void troca(unsigned long int *a,unsigned long int *b) { // Função para trocar dois elementos no array
+    unsigned long int temp = *a;
     *a = *b;
     *b = temp;
 }
 
-// Função de partição
-int divisao(int arr[], int low, int high) {
-    int pivot = arr[high];  // Escolhe o último elemento como pivô
+// Função que realiza a partição do array e retorna o índice do pivô
+int divisao(unsigned long int arr[], int low,int high) {
+    unsigned long int pivot = arr[high];  // Escolhe o último elemento como pivô
     int i = (low - 1); // Índice do menor elemento
 
     for (int j = low; j < high; j++) {
@@ -471,7 +486,7 @@ int divisao(int arr[], int low, int high) {
 }
 
 // Implementação recursiva do QuickSort
-void quickSort(int arr[], int low, int high) {
+void quickSort(unsigned long int arr[],int low, int high) {
     if (low < high) {
         int pi = divisao(arr, low, high); // Encontra o índice do pivô
 
@@ -480,7 +495,6 @@ void quickSort(int arr[], int low, int high) {
         quickSort(arr, pi + 1, high);
     }
 }
-
 
 // 10 - HEAP SORT
 void swap(int *a, int *b) {
@@ -630,25 +644,3 @@ void timSort(int array[], int n) { // Função que executa o método TimSort:
         }
     }
 }
-
-//#################################################################//
-// BIBLIOTECA SELECTION SORT
-void selectionSort(unsigned long int *v, unsigned long int n){
-    int menor, troca;
-    for(int i = 0; i < n - 1; i++){
-        // Procura o menor elemento em relação a i
-        menor = i;
-        for(int j = i + 1; j < n; j++){
-            if(v[j] < v[menor]){
-                menor = j;
-            }
-        }
-        // Troca os valores da posição atual com a "menor"
-        if(i != menor){
-            troca = v[i];
-            v[i] = v[menor];
-            v[menor] = troca;
-        }
-    }
-}
-//#################################################################//

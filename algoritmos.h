@@ -28,9 +28,9 @@ void mergeSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 
 // QUICK SORT
-void troca(int *a, int *b);
-int divisao(int arr[], int low, int high);
-void quickSort(int arr[], int low, int high);
+void troca(unsigned long int *a, unsigned long int *b);
+int divisao(unsigned long int arr[], int low, int high);
+void quickSort(unsigned long int arr[], int low, int high);
 
 
 // HEAP SORT

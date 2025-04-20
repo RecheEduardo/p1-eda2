@@ -82,11 +82,11 @@ unsigned int menuPrincipal(){
 unsigned long int menuTamanho(){
     char inputUser;
     int row = 0;
-    char selection[7];
+    char selection[8];
     unsigned int tamanho;
 
     // Zera vetor de seleção
-    for(int i = 0; i < 7; i++) selection[i] = ' ';
+    for(int i = 0; i < 8; i++) selection[i] = ' ';
     selection[0] = '>';
 
     do{
@@ -94,12 +94,13 @@ unsigned long int menuTamanho(){
         printf("\n#####################################################");
         printf("\n======= SELECIONE O TAMANHO DO VETOR DE TESTES ======\n");
         printf("\n%c 10.000      ELEMENTOS", selection[0]);
-        printf("\n%c 50.000      ELEMENTOS", selection[1]);
-        printf("\n%c 100.000     ELEMENTOS", selection[2]);
-        printf("\n%c 200.000     ELEMENTOS", selection[3]);
-        printf("\n%c 500.000     ELEMENTOS", selection[4]);
-        printf("\n%c 1.000.000   ELEMENTOS", selection[5]);
-        printf("\n\n%c VOLTAR AO MENU PRINCIPAL", selection[6]);
+        printf("\n%c 30.000      ELEMENTOS", selection[1]);
+        printf("\n%c 50.000      ELEMENTOS", selection[2]);
+        printf("\n%c 100.000     ELEMENTOS", selection[3]);
+        printf("\n%c 200.000     ELEMENTOS", selection[4]);
+        printf("\n%c 500.000     ELEMENTOS", selection[5]);
+        printf("\n%c 1.000.000   ELEMENTOS", selection[6]);
+        printf("\n\n%c VOLTAR AO MENU PRINCIPAL", selection[7]);
         printf("\n\n#####################################################\n");
 
         // Ao clicar com as setas, envia 2 códigos, sendo o primeiro -32, e o segundo o código real
@@ -112,14 +113,14 @@ unsigned long int menuTamanho(){
                     selection[row] = ' ';
                     row--;
                     if(row < 0)
-                        row = 6;
+                        row = 7;
                     selection[row] = '>';
                     break;
 
                 case 80: // Código para seta pra baixo
                     selection[row]= ' ';
                     row++;
-                    if(row > 6)
+                    if(row > 7)
                         row = 0;
                     selection[row] = '>';
                     break;
@@ -137,26 +138,30 @@ unsigned long int menuTamanho(){
             return tamanho;
 
         case 1:
-            tamanho = 50000;
+            tamanho = 30000;
             return tamanho;
 
         case 2:
-            tamanho = 100000;
+            tamanho = 50000;
             return tamanho;
 
         case 3:
-            tamanho = 200000;
+            tamanho = 100000;
             return tamanho;
 
         case 4:
-            tamanho = 500000;
+            tamanho = 200000;
             return tamanho;
 
         case 5:
-            tamanho = 1000000;
+            tamanho = 500000;
             return tamanho;
 
         case 6:
+            tamanho = 1000000;
+            return tamanho;
+
+        case 7:
             return 0;
     }
 
@@ -219,12 +224,12 @@ void imprimirVetor(unsigned long int *vetor, unsigned long int tamanho){ // Roti
     }
 }
 
-void resultadoTestes(double tempo_medio, double tempo_melhor, double tempo_pior, unsigned long int tamanho){
+void resultadoTestes(double tempo_medio, double tempo_LC, double tempo_LD, unsigned long int tamanho){
     printf("\n#####################################################\n");
     printf("\n================ RESULTADO DOS TESTES ===============\n");
-    printf("\nMédio (%lu elementos): %fs", tamanho, tempo_medio);
-    printf("\nMelhor Caso: %fs", tempo_melhor);
-    printf("\nPior Caso: %fs", tempo_pior);
+    printf("\nListas Aleatória (Média) (%lu elementos): %fs", tamanho, tempo_medio);
+    printf("\nLista Crescente: %fs", tempo_LC);
+    printf("\nLista Decrescente: %fs", tempo_LD);
     printf("\n\n#####################################################\n");
     system("PAUSE");
 }
@@ -254,7 +259,7 @@ void resultadoTestes(double tempo_medio, double tempo_melhor, double tempo_pior,
 
 // ROTINA DE TESTE DO SELECTION SORT
 void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho){
-    double tempo_medio = 0, tempo_melhor = 0, tempo_pior = 0;
+    double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
     // CASO MÉDIO
@@ -266,13 +271,13 @@ void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho){
         gettimeofday(&tempo_fim, NULL);
         tempo_medio = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
             (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0) + tempo_medio;
-        /*printf("\nTempo medio somados %d / 10 = %f\n", i + 1, taux);
+        /*pprintf("\nTempo Lista Aleatória %d / 10 = %fs\n", i + 1, tempo_LA);
         system("PAUSE");*/
         free(lista);
         printf("====");
     }
     tempo_medio = tempo_medio / 10;
-    /*printf("\nTempo medio = %f\n", tempo_medio);
+    /*printf("\nTempo Lista Aleatória (Média) = %f\n", tempo_medio);
     system("PAUSE");*/
 
     // MELHOR CASO
@@ -280,9 +285,9 @@ void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho){
     gettimeofday(&tempo_inicio, NULL);
     selectionSort(lista, tamanho);
     gettimeofday(&tempo_fim, NULL);
-    tempo_melhor = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+    tempo_LC = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
         (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
-    /*printf("\nTempo melhor = %f\n", tempo_melhor);
+    /*printf("\nTempo Lista Crescente = %f\n", tempo_LC);
     system("PAUSE");*/
     free(lista);
     printf("===");
@@ -293,13 +298,66 @@ void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho){
     gettimeofday(&tempo_inicio, NULL);
     selectionSort(lista, tamanho);
     gettimeofday(&tempo_fim, NULL);
-    tempo_pior = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+    tempo_LD = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
         (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
-    /*printf("\nTempo pior = %f\n", tempo_pior);
+    /*printf("\nTempo Lista Decrescente = %f\n", tempo_LD);
     system("PAUSE");*/
 
     free(lista);
     printf("===]\n");
 
-    resultadoTestes(tempo_medio, tempo_melhor, tempo_pior, tamanho);
+    resultadoTestes(tempo_medio, tempo_LC, tempo_LD, tamanho);
+}
+
+// ROTINA DE TESTE DO QUICK SORT
+void quickSortTeste(unsigned long int *lista, unsigned long int tamanho){
+    double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0, tempo_LA = 0;
+    struct timeval tempo_inicio, tempo_fim;
+
+    // CASO MÉDIO
+    //printf("\n\n   [");
+    for(int i = 0; i < 10; i++){
+        lista = listaAleatoria(tamanho);
+        gettimeofday(&tempo_inicio, NULL);
+        quickSort(lista, 0, tamanho - 1);
+        gettimeofday(&tempo_fim, NULL);
+        tempo_LA = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+            (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
+        tempo_medio += tempo_LA;
+        printf("\nTempo Lista Aleatória %d / 10 = %fs\n", i + 1, tempo_LA);
+        system("PAUSE");
+        free(lista);
+        //printf("====");
+    }
+    tempo_medio = tempo_medio / 10;
+    printf("\nTempo Lista Aleatória (Média) = %fs\n", tempo_medio);
+    system("PAUSE");
+
+    // MELHOR CASO
+    lista = listaCrescente(tamanho);
+    gettimeofday(&tempo_inicio, NULL);
+    quickSort(lista, 0, tamanho - 1);
+    gettimeofday(&tempo_fim, NULL);
+    tempo_LC = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
+    printf("\nTempo Lista Crescente = %fs\n", tempo_LC);
+    system("PAUSE");
+    free(lista);
+    //printf("===");
+
+
+    // PIOR CASO
+    lista = listaDecrescente(tamanho);
+    gettimeofday(&tempo_inicio, NULL);
+    quickSort(lista, 0, tamanho - 1);
+    gettimeofday(&tempo_fim, NULL);
+    tempo_LD = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
+    printf("\nTempo Lista Decrescente = %fs\n", tempo_LD);
+    system("PAUSE");
+
+    free(lista);
+    //printf("===]\n");
+
+    resultadoTestes(tempo_medio, tempo_LC, tempo_LD, tamanho);
 }
