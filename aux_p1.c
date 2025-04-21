@@ -7,7 +7,7 @@
 #include "aux_p1.h"
 
 // MENU PRINCIPAL INTERATIVO
-unsigned int menuPrincipal(){
+int menuPrincipal(){
     char inputUser;
     int row = 0, col = 0, algoritmo = 0;
     char selection[4][3];
@@ -79,11 +79,11 @@ unsigned int menuPrincipal(){
 }
 
 // SUBMENU PARA O TAMANHO DA LISTA
-unsigned long int menuTamanho(){
+int menuTamanho(){
     char inputUser;
     int row = 0;
     char selection[8];
-    unsigned int tamanho;
+    int tamanho;
 
     // Zera vetor de seleção
     for(int i = 0; i < 8; i++) selection[i] = ' ';
@@ -168,8 +168,8 @@ unsigned long int menuTamanho(){
     return -1; // O retorno acontece pelo switch, porém coloquei um aqui para o compilador não ficar dando Warning
 }
 
-unsigned long int *listaCrescente(unsigned long int tamanho){
-    unsigned long int *lista = malloc(tamanho * sizeof(unsigned int));
+int *listaCrescente(int tamanho){
+    int *lista = malloc(tamanho * sizeof(int));
 
     if (lista == NULL) {
         printf("Erro na alocação de memória!\n");
@@ -177,14 +177,14 @@ unsigned long int *listaCrescente(unsigned long int tamanho){
     }
 
     // Gera um número aleatório para cada item da lista
-    for(unsigned long int i = 0; i < tamanho; i++){
+    for(int i = 0; i < tamanho; i++){
         lista[i] = i;
     }
     return lista;
 }
 
-unsigned long int *listaDecrescente(unsigned long int tamanho){
-    unsigned long int *lista = malloc(tamanho * sizeof(unsigned int));
+int *listaDecrescente(int tamanho){
+    int *lista = malloc(tamanho * sizeof(int));
 
     if (lista == NULL) {
         printf("Erro na alocação de memória!\n");
@@ -192,15 +192,15 @@ unsigned long int *listaDecrescente(unsigned long int tamanho){
     }
 
     // Gera um número aleatório para cada item da lista
-    for(unsigned long int i = 0; i < tamanho; i++){
+    for(int i = 0; i < tamanho; i++){
         lista[i] = tamanho - i;
     }
     return lista;
 }
 
-unsigned long int *listaAleatoria(unsigned long int tamanho){
-    unsigned long int *lista;
-    unsigned long int tmp, j;
+int *listaAleatoria(int tamanho){
+    int *lista;
+    int tmp, j;
 
     srand((unsigned) time(NULL));
 
@@ -208,7 +208,7 @@ unsigned long int *listaAleatoria(unsigned long int tamanho){
     lista = listaCrescente(tamanho);
 
     // E agora embaralha a lista
-    for(unsigned long int i = 0; i < tamanho; i++){
+    for(int i = 0; i < tamanho; i++){
         j = rand() % (i + 1);
         tmp = lista[j];
         lista[j] = lista[i];
@@ -218,16 +218,16 @@ unsigned long int *listaAleatoria(unsigned long int tamanho){
     return lista;
 }
 
-void imprimirVetor(unsigned long int *vetor, unsigned long int tamanho){ // Rotina para teste
+void imprimirVetor(int *vetor, int tamanho){ // Rotina para teste
     for(int i = 0; i < tamanho; i++){
-        printf(" %lu", vetor[i]);
+        printf(" %d", vetor[i]);
     }
 }
 
-void resultadoTestes(double tempo_medio, double tempo_LC, double tempo_LD, unsigned long int tamanho){
+void resultadoTestes(double tempo_medio, double tempo_LC, double tempo_LD, int tamanho){
     printf("\n#####################################################\n");
     printf("\n================ RESULTADO DOS TESTES ===============\n");
-    printf("\nListas Aleatória (Média) (%lu elementos): %fs", tamanho, tempo_medio);
+    printf("\nListas Aleatória (Média) (%d elementos): %fs", tamanho, tempo_medio);
     printf("\nLista Crescente: %fs", tempo_LC);
     printf("\nLista Decrescente: %fs", tempo_LD);
     printf("\n\n#####################################################\n");

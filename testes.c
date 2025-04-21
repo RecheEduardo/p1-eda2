@@ -10,7 +10,7 @@
 
 
 // INSERTION SORT
-void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+void insertionSortTeste(int *lista, int tamanho) {
     double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -53,7 +53,7 @@ void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 
 // SELECTION SORT
-void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho){
+void selectionSortTeste(int *lista, int tamanho){
     double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -105,7 +105,7 @@ void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho){
 
 
 // COUNTING SORT
-void countingSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+void countingSortTeste(int *lista, int tamanho) {
     double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -148,7 +148,7 @@ void countingSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 
 // RADIX SORT
-void radixSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+void radixSortTeste(int *lista, int tamanho) {
     double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -194,7 +194,7 @@ void radixSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 
 // SHELL SORT
-void shellSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+void shellSortTeste(int *lista, int tamanho) {
         double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -237,7 +237,7 @@ void shellSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 
 // MERGE SORT;
-void mergeSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+void mergeSortTeste(int *lista, int tamanho) {
         double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -280,7 +280,7 @@ void mergeSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 
 // QUICK SORT
-void quickSortTeste(unsigned long int *lista, unsigned long int tamanho){
+void quickSortTeste(int *lista, int tamanho){
     double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0, tempo_LA = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -328,7 +328,7 @@ void quickSortTeste(unsigned long int *lista, unsigned long int tamanho){
     resultadoTestes(tempo_medio, tempo_LC, tempo_LD, tamanho);
 }
 // HEAP SORT
-void heapSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+void heapSortTeste(int *lista, int tamanho) {
         double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -373,7 +373,7 @@ void heapSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 // TIM SORT
 
 // FLUXO DOS TESTES
-//  void nomeDoAlgoritmoTeste(unsigned long int *lista, unsigned long int tamanho){
+//  void nomeDoAlgoritmoTeste(int *lista, int tamanho){
 //      1 - Teste com a lista aleatória (MÉDIA) (Testar 10 vezes)
 //        { a - Cria a lista aleatória
 //          b - Inicia o temporizador

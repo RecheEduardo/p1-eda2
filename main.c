@@ -2,9 +2,9 @@
 #include "testes.h"
 int main()
 {
-    unsigned long int *lista;
-    unsigned int algoritmo;
-    unsigned long int tamanho;
+    int *lista;
+    int algoritmo;
+    int tamanho;
 
     setlocale(LC_ALL, "");
     do{
