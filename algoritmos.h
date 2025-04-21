@@ -1,5 +1,5 @@
 // BUBBLE SORT
-void bubbleSort(int *v, int n);
+void bubbleSort(unsigned long int *v, unsigned long int n);
 
 
 // SELECTION SORT

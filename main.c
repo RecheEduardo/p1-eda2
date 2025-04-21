@@ -17,7 +17,7 @@ int main()
                 system("cls");
                 printf("\n#####################################################");
                 printf("\n======== Algoritmo selecionado: BUBBLE SORT ========");
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                bubbleSortTeste(lista, tamanho);
                 break;
 
             case 2: // INSERTION SORT

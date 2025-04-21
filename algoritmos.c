@@ -5,7 +5,7 @@
 #include "aux_p1.h"
 
 // 01 - BUBBLE SORT
-void bubbleSort(int *v, int n){
+void bubbleSort(unsigned long int *v, unsigned long int n){
     int continua, aux, fim = n;
     do{
         continua = 0;
