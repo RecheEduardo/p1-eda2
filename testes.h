@@ -3,19 +3,19 @@
 
 
 // SELECTION SORT
-void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho);
+void selectionSortTeste(int *lista, int tamanho);
 
 
 // INSERTION SORT
-void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho);
+void insertionSortTeste(int *lista, int tamanho);
 
 
 // COUNTING SORT
-void countingSortTeste(unsigned long int *lista, unsigned long int tamanho);
+void countingSortTeste(int *lista, int tamanho);
 
 
 // RADIX SORT
-void radixSortTeste(unsigned long int *lista, unsigned long int tamanho);
+void radixSortTeste(int *lista, int tamanho);
 
 
 // BUCKET SORT
@@ -23,19 +23,19 @@ void radixSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 
 // SHELL SORT
-void shellSortTeste(unsigned long int *lista, unsigned long int tamanho);
+void shellSortTeste(int *lista, int tamanho);
 
 
 // MERGE SORT;
-void mergeSortTeste(unsigned long int *lista, unsigned long int tamanho);
+void mergeSortTeste(int *lista, int tamanho);
 
 
 // QUICK SORT
-void quickSortTeste(unsigned long int *lista, unsigned long int tamanho);
+void quickSortTeste(int *lista, int tamanho);
 
 
 // HEAP SORT
-void heapSortTeste(unsigned long int *lista, unsigned long int tamanho);
+void heapSortTeste(int *lista, int tamanho);
 
 
 // TIM SORT

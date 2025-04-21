@@ -27,7 +27,7 @@ void bubbleSort(int *v, int n){
 
 
 // 02 - INSERTION SORT
-void insertionSort(unsigned long int *lista, unsigned long int tamanho){
+void insertionSort(int *lista, int tamanho){
     int aux, i, j;
 
     for(i = 1; i < tamanho; i++){
@@ -41,7 +41,7 @@ void insertionSort(unsigned long int *lista, unsigned long int tamanho){
 
 
 // 03 - SELECTION SORT
-void selectionSort(unsigned long int *v, unsigned long int n){
+void selectionSort(int *v,int n){
     int menor, troca;
     for(int i = 0; i < n - 1; i++){
         // Procura o menor elemento em relação a i
@@ -114,9 +114,9 @@ void countingSort(int *inputArray, int numElementos) {
 
 
 // 05 - RADIX SORT
-unsigned int getMax(unsigned int *arr,unsigned int n) {
+int getMax(int *arr,int n) {
     // obter o valor máximo em arr[]
-    unsigned int mx = arr[0];
+    int mx = arr[0];
     for (int i = 1; i < n; i++)
         if (arr[i] > mx)
             mx = arr[i];
@@ -124,15 +124,14 @@ unsigned int getMax(unsigned int *arr,unsigned int n) {
 }
 
 // função para realizar o ordenamento por contagem de arr[] de acordo com o dígito representado por exp
-void countingSortRadix(unsigned int *arr, unsigned int n, unsigned int exp, unsigned int radix) {
+void countingSortRadix(int *arr, int n, int exp, int radix) {
     // Array de saída
-    unsigned int *output = malloc(n * sizeof(unsigned int));
+    int *output = malloc(n * sizeof(int));
     if (output == NULL) {
         printf("Erro na alocação de memória!\n");
     }
     // Inicializa o array de contagem com 0
-    //unsigned int count[radix];
-    unsigned int *count = calloc(radix, sizeof(unsigned int));
+    int *count = calloc(radix, sizeof(int));
     if (count == NULL) {
         printf("Erro na alocação de memória!\n");
     }
@@ -163,7 +162,7 @@ void countingSortRadix(unsigned int *arr, unsigned int n, unsigned int exp, unsi
 }
 
 // A função principal para ordenar arr[] de tamanho n usando o Radix Sort
-void radixSort(unsigned int *arr, int n, int radix) {
+void radixSort(int *arr, int n, int radix) {
 
     // Encontra o número máximo para saber o número de
     // dígitos
@@ -313,15 +312,15 @@ void mergeSort(int *v, int inicio, int fim){
 
 // 09 - QUICK SORT
 // Função para trocar dois elementos de posição
-void troca(unsigned long int *a,unsigned long int *b) { // Função para trocar dois elementos no array
-    unsigned long int temp = *a;
+void troca(int *a,int *b) { // Função para trocar dois elementos no array
+    int temp = *a;
     *a = *b;
     *b = temp;
 }
 
 // Função que realiza a partição do array e retorna o índice do pivô
-int divisao(unsigned long int arr[], int low,int high) {
-    unsigned long int pivot = arr[high];  // Escolhe o último elemento como pivô
+int divisao(int arr[], int low,int high) {
+    int pivot = arr[high];  // Escolhe o último elemento como pivô
     int i = (low - 1); // Índice do menor elemento
 
     for (int j = low; j < high; j++) {
@@ -335,7 +334,7 @@ int divisao(unsigned long int arr[], int low,int high) {
 }
 
 // Implementação recursiva do QuickSort
-void quickSort(unsigned long int arr[],int low, int high) {
+void quickSort(int arr[],int low, int high) {
     if (low < high) {
         int pi = divisao(arr, low, high); // Encontra o índice do pivô
 
