@@ -37,7 +37,7 @@
 	<sys/time.h>
 	"aux_p1.h"
 
-1745173391 z:\my drive\projetos\p1-eda2\aux_p1.h
+1745250149 z:\my drive\projetos\p1-eda2\aux_p1.h
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
@@ -48,11 +48,11 @@
 
 1745172334 z:\my drive\projetos\p1-eda2\algoritmos.h
 
-1745171736 source:z:\my drive\projetos\p1-eda2\main.c
+1745175786 source:z:\my drive\projetos\p1-eda2\main.c
 	"aux_p1.h"
 	"testes.h"
 
-1745173113 source:z:\my drive\projetos\p1-eda2\aux_p1.c
+1745250149 source:z:\my drive\projetos\p1-eda2\aux_p1.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
@@ -71,9 +71,9 @@
 	<sys/time.h>
 	"aux_p1.h"
 
-1745171736 z:\my drive\projetos\p1-eda2\testes.h
+1745175786 z:\my drive\projetos\p1-eda2\testes.h
 
-1745174196 source:z:\my drive\projetos\p1-eda2\testes.c
+1745250288 source:z:\my drive\projetos\p1-eda2\testes.c
 	"algoritmos.h"
 	<stdio.h>
 	<stdlib.h>

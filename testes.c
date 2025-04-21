@@ -285,7 +285,7 @@ void quickSortTeste(unsigned long int *lista, unsigned long int tamanho){
     struct timeval tempo_inicio, tempo_fim;
 
     // CASO MÉDIO: LISTAS ALEATÓRIA
-    //printf("\n\n   [");
+    printf("\n\n   [");
     for(int i = 0; i < 10; i++){
         lista = listaAleatoria(tamanho);
         gettimeofday(&tempo_inicio, NULL);
@@ -294,11 +294,10 @@ void quickSortTeste(unsigned long int *lista, unsigned long int tamanho){
         tempo_LA = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
             (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
         tempo_medio += tempo_LA;
-        printf("\nTempo Lista Aleatória %d / 10 = %fs\n", i + 1, tempo_LA);
-        system("PAUSE");
         free(lista);
-        //printf("====");
+        printf("====");
     }
+    printf("]\n");
     tempo_medio = tempo_medio / 10;
     printf("\nTempo Lista Aleatória (Média) = %fs\n", tempo_medio);
     system("PAUSE");
@@ -313,8 +312,6 @@ void quickSortTeste(unsigned long int *lista, unsigned long int tamanho){
     printf("\nTempo Lista Crescente = %fs\n", tempo_LC);
     system("PAUSE");
     free(lista);
-    //printf("===");
-
     // CASO: LISTA DECRESCENTE
     lista = listaDecrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
