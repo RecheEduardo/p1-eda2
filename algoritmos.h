@@ -3,11 +3,11 @@ void bubbleSort(unsigned long int *v, unsigned long int n);
 
 
 // SELECTION SORT
-void selectionSort(unsigned long int *v, unsigned long int n);
+void selectionSort(int *v, int n);
 
 
 // INSERTION SORT
-void insertionSort(unsigned long int *lista, unsigned long int tamanho);
+void insertionSort(int *lista, int tamanho);
 
 
 // COUNTING SORT
@@ -15,9 +15,9 @@ void countingSort(int *inputArray, int numElementos);
 
 
 // RADIX SORT
-void radixSort(unsigned int *arr, int n, int radix);
-void countingSortRadix(unsigned int *arr, unsigned int n, unsigned int exp, unsigned int radix);
-unsigned int getMax(unsigned int *arr,unsigned int n);
+void radixSort(int *arr, int n, int radix);
+void countingSortRadix(int *arr, int n, int exp, int radix);
+int getMax(int *arr,int n);
 
 
 // BUCKET SORT
@@ -36,9 +36,9 @@ void merge(int *v, int inicio, int meio, int fim);
 
 
 // QUICK SORT
-void troca(unsigned long int *a, unsigned long int *b);
-int divisao(unsigned long int arr[], int low, int high);
-void quickSort(unsigned long int arr[], int low, int high);
+void troca(int *a, int *b);
+int divisao(int arr[], int low, int high);
+void quickSort(int arr[], int low, int high);
 
 
 // HEAP SORT

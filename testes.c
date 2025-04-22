@@ -49,7 +49,7 @@ void bubbleSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 
 // INSERTION SORT
-void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+void insertionSortTeste(int *lista, int tamanho) {
     double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -92,7 +92,7 @@ void insertionSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 
 // SELECTION SORT
-void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho){
+void selectionSortTeste(int *lista, int tamanho){
     double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -144,7 +144,7 @@ void selectionSortTeste(unsigned long int *lista, unsigned long int tamanho){
 
 
 // COUNTING SORT
-void countingSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+void countingSortTeste(int *lista, int tamanho) {
     double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -187,7 +187,7 @@ void countingSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 
 // RADIX SORT
-void radixSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+void radixSortTeste(int *lista, int tamanho) {
     double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -233,7 +233,7 @@ void radixSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 
 // SHELL SORT
-void shellSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+void shellSortTeste(int *lista, int tamanho) {
         double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -276,7 +276,7 @@ void shellSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 
 // MERGE SORT;
-void mergeSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+void mergeSortTeste(int *lista, int tamanho) {
         double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -319,28 +319,29 @@ void mergeSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 
 // QUICK SORT
-void quickSortTeste(unsigned long int *lista, unsigned long int tamanho){
-    double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0, tempo_LA = 0;
+void quickSortTeste(int *lista, int tamanho){
+    double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0; //tempo_LA = 0;
     struct timeval tempo_inicio, tempo_fim;
 
     // CASO MÉDIO: LISTAS ALEATÓRIA
-    //printf("\n\n   [");
+    printf("\n\n   [");
     for(int i = 0; i < 10; i++){
         lista = listaAleatoria(tamanho);
         gettimeofday(&tempo_inicio, NULL);
         quickSort(lista, 0, tamanho - 1);
         gettimeofday(&tempo_fim, NULL);
-        tempo_LA = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
-            (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
-        tempo_medio += tempo_LA;
-        printf("\nTempo Lista Aleatória %d / 10 = %fs\n", i + 1, tempo_LA);
-        system("PAUSE");
+        //tempo_LA = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+        //    (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
+        tempo_medio = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+            (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0) + tempo_medio;
+        //tempo_medio += tempo_LA;
         free(lista);
-        //printf("====");
+        printf("====");
     }
+    //printf("]\n");
     tempo_medio = tempo_medio / 10;
-    printf("\nTempo Lista Aleatória (Média) = %fs\n", tempo_medio);
-    system("PAUSE");
+    //printf("\nTempo Lista Aleatória (Média) = %fs\n", tempo_medio);
+    //system("PAUSE");
 
     // CASO: LISTA CRESCENTE
     lista = listaCrescente(tamanho);
@@ -349,10 +350,10 @@ void quickSortTeste(unsigned long int *lista, unsigned long int tamanho){
     gettimeofday(&tempo_fim, NULL);
     tempo_LC = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
         (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
-    printf("\nTempo Lista Crescente = %fs\n", tempo_LC);
-    system("PAUSE");
+    //printf("\nTempo Lista Crescente = %fs\n", tempo_LC);
+    //system("PAUSE");
     free(lista);
-    //printf("===");
+    printf("===");
 
     // CASO: LISTA DECRESCENTE
     lista = listaDecrescente(tamanho);
@@ -361,16 +362,17 @@ void quickSortTeste(unsigned long int *lista, unsigned long int tamanho){
     gettimeofday(&tempo_fim, NULL);
     tempo_LD = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
         (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
-    printf("\nTempo Lista Decrescente = %fs\n", tempo_LD);
-    system("PAUSE");
+    //printf("\nTempo Lista Decrescente = %fs\n", tempo_LD);
+    //system("PAUSE");
 
     free(lista);
     //printf("===]\n");
+    printf("===]\n");
 
     resultadoTestes(tempo_medio, tempo_LC, tempo_LD, tamanho);
 }
 // HEAP SORT
-void heapSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+void heapSortTeste(int *lista, int tamanho) {
         double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -413,8 +415,7 @@ void heapSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
 
 // TIM SORT
-
-void timSortTeste(unsigned long int *lista, unsigned long int tamanho) {
+void timSortTeste(int *lista, int tamanho) {
     double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
@@ -454,4 +455,5 @@ void timSortTeste(unsigned long int *lista, unsigned long int tamanho) {
 
     resultadoTestes(tempo_medio, tempo_LC, tempo_LD, tamanho);
 }
+
 

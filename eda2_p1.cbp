@@ -31,6 +31,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Linker>
+			<Add option="-Wl,--stack,1073741824" />
+		</Linker>
 		<Unit filename="algoritmos.c">
 			<Option compilerVar="CC" />
 		</Unit>

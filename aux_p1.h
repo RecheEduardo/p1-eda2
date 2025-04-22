@@ -11,16 +11,16 @@
 
 
 // PROCEDIMENTO DE EXIBIR AS OPÇÕES DO PROGRAMA NA TELA
-unsigned int menuPrincipal();
+int menuPrincipal();
 
-unsigned long int menuTamanho();
+int menuTamanho();
 
-unsigned long int *listaCrescente(unsigned long int tamanho);
+int *listaCrescente(int tamanho);
 
-unsigned long int *listaDecrescente(unsigned long int tamanho);
+int *listaDecrescente(int tamanho);
 
-unsigned long int *listaAleatoria(unsigned long int tamanho);
+int *listaAleatoria(int tamanho);
 
-void imprimirVetor(unsigned long int *vetor,unsigned long int tamanho); // Rotina para teste
+void imprimirVetor(int *vetor,int tamanho); // Rotina para teste
 
-void resultadoTestes(double tempo_medio, double tempo_LC, double tempo_LD, unsigned long int tamanho);
+void resultadoTestes(double tempo_medio, double tempo_LC, double tempo_LD, int tamanho);
