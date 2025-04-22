@@ -281,7 +281,7 @@ void mergeSortTeste(int *lista, int tamanho) {
 
 // QUICK SORT
 void quickSortTeste(int *lista, int tamanho){
-    double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0, tempo_LA = 0;
+    double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0; //tempo_LA = 0;
     struct timeval tempo_inicio, tempo_fim;
 
     // CASO MÉDIO: LISTAS ALEATÓRIA
@@ -291,16 +291,18 @@ void quickSortTeste(int *lista, int tamanho){
         gettimeofday(&tempo_inicio, NULL);
         quickSort(lista, 0, tamanho - 1);
         gettimeofday(&tempo_fim, NULL);
-        tempo_LA = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
-            (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
-        tempo_medio += tempo_LA;
+        //tempo_LA = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+        //    (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
+        tempo_medio = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+            (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0) + tempo_medio;
+        //tempo_medio += tempo_LA;
         free(lista);
         printf("====");
     }
-    printf("]\n");
+    //printf("]\n");
     tempo_medio = tempo_medio / 10;
-    printf("\nTempo Lista Aleatória (Média) = %fs\n", tempo_medio);
-    system("PAUSE");
+    //printf("\nTempo Lista Aleatória (Média) = %fs\n", tempo_medio);
+    //system("PAUSE");
 
     // CASO: LISTA CRESCENTE
     lista = listaCrescente(tamanho);
@@ -309,9 +311,11 @@ void quickSortTeste(int *lista, int tamanho){
     gettimeofday(&tempo_fim, NULL);
     tempo_LC = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
         (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
-    printf("\nTempo Lista Crescente = %fs\n", tempo_LC);
-    system("PAUSE");
+    //printf("\nTempo Lista Crescente = %fs\n", tempo_LC);
+    //system("PAUSE");
     free(lista);
+    printf("===");
+
     // CASO: LISTA DECRESCENTE
     lista = listaDecrescente(tamanho);
     gettimeofday(&tempo_inicio, NULL);
@@ -319,11 +323,12 @@ void quickSortTeste(int *lista, int tamanho){
     gettimeofday(&tempo_fim, NULL);
     tempo_LD = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
         (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
-    printf("\nTempo Lista Decrescente = %fs\n", tempo_LD);
-    system("PAUSE");
+    //printf("\nTempo Lista Decrescente = %fs\n", tempo_LD);
+    //system("PAUSE");
 
     free(lista);
     //printf("===]\n");
+    printf("===]\n");
 
     resultadoTestes(tempo_medio, tempo_LC, tempo_LD, tamanho);
 }

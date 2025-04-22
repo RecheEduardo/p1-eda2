@@ -243,7 +243,7 @@ void insertionSortShell(int *arr, int tam){ // Insertion sort para o Shell
 }
 
 void shellSort(int *arr, int tam) { // Shell sort, uma variação do Insertion sort
-    int intervalo, aux, i, j, x;
+    int intervalo, aux, i, j;
 
     for (intervalo = tam / 2; intervalo > 0; intervalo /= 2) {
         for (i = intervalo; i < tam; i++) {
