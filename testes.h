@@ -1,5 +1,5 @@
 // BUBBLE SORT
-// a fazer............
+void bubbleSortTeste(unsigned long int *lista, unsigned long int tamanho);
 
 
 // SELECTION SORT
@@ -39,4 +39,4 @@ void heapSortTeste(int *lista, int tamanho);
 
 
 // TIM SORT
-// a fazer............
+void timSortTeste(unsigned long int *lista, unsigned long int tamanho);

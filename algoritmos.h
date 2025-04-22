@@ -1,5 +1,5 @@
 // BUBBLE SORT
-void bubbleSort(int *v, int n);
+void bubbleSort(unsigned long int *v, unsigned long int n);
 
 
 // SELECTION SORT
@@ -50,7 +50,7 @@ void heapSortDescending(int arr[], int n);
 
 
 // TIM SORT
-void timSort(int array[], int n);
+void timSort(unsigned long int *array, unsigned long int n);
 int minT(int a, int b);
 void insertionSortTim(int array[], int esq, int dir);
 void mergeSortTim(int array[], int x, int y, int z);
