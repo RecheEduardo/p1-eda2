@@ -99,19 +99,26 @@
 	<math.h>
 	"algoritmos.h"
 
-1745221598 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\algoritmos.h
+1745224236 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\algoritmos.h
 
-1745221546 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\main.c
+1745224314 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\main.c
 	"aux_p1.h"
 	"testes.h"
 
-1745219380 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\testes.h
+1745224470 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\testes.h
 
-1745221532 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\testes.c
+1745224296 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\testes.c
 	"algoritmos.h"
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
+	<sys/time.h>
+	"aux_p1.h"
+
+1745224217 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\algoritmos.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
 	<sys/time.h>
 	"aux_p1.h"
 

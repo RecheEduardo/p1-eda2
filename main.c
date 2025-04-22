@@ -107,7 +107,7 @@ int main()
                 system("cls");
                 printf("\n#####################################################");
                 printf("\n========== Algoritmo selecionado: TIM SORT ==========");
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                timSortTeste(lista, tamanho);
                 break;
 
             case 12: // SAIR

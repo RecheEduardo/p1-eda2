@@ -474,7 +474,7 @@ void mergeSortTim(int array[], int x, int y, int z) {
     }
 }
 
-void timSort(int array[], int n) { // Função que executa o método TimSort:
+void timSort(unsigned long int *array, unsigned long int n) { // Função que executa o método TimSort:
     for (int i = 0; i < n; i += RUN) { // Para cada array menor, didivido pelo mergeSort, será aplicado o insertSort (ordena-los de forma crescente)
         insertionSortTim(array, i, minT((i + RUN - 1), (n - 1)));
     }
