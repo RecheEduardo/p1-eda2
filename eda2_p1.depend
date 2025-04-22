@@ -30,14 +30,14 @@
 	"aux_p1.h"
 	"testes.h"
 
-1745279787 source:z:\my drive\projetos\p1-eda2\algoritmos.c
+1745285205 source:z:\my drive\projetos\p1-eda2\algoritmos.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<sys/time.h>
 	"aux_p1.h"
 
-1745279158 z:\my drive\projetos\p1-eda2\aux_p1.h
+1745280783 z:\my drive\projetos\p1-eda2\aux_p1.h
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
@@ -46,13 +46,13 @@
 	<math.h>
 	"algoritmos.h"
 
-1745279158 z:\my drive\projetos\p1-eda2\algoritmos.h
+1745285192 z:\my drive\projetos\p1-eda2\algoritmos.h
 
-1745279158 source:z:\my drive\projetos\p1-eda2\main.c
+1745283143 source:z:\my drive\projetos\p1-eda2\main.c
 	"aux_p1.h"
 	"testes.h"
 
-1745279158 source:z:\my drive\projetos\p1-eda2\aux_p1.c
+1745285266 source:z:\my drive\projetos\p1-eda2\aux_p1.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
@@ -71,9 +71,9 @@
 	<sys/time.h>
 	"aux_p1.h"
 
-1745279159 z:\my drive\projetos\p1-eda2\testes.h
+1745283179 z:\my drive\projetos\p1-eda2\testes.h
 
-1745280263 source:z:\my drive\projetos\p1-eda2\testes.c
+1745283190 source:z:\my drive\projetos\p1-eda2\testes.c
 	"algoritmos.h"
 	<stdio.h>
 	<stdlib.h>
@@ -81,16 +81,14 @@
 	<sys/time.h>
 	"aux_p1.h"
 
-1745219380 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\aux_p1.c
+1745285205 source:z:\my drive\projetos\p1-eda2-full\p1-eda2\algoritmos.c
 	<stdio.h>
 	<stdlib.h>
-	<locale.h>
 	<time.h>
-	<conio.h>
 	<sys/time.h>
 	"aux_p1.h"
 
-1745219380 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\aux_p1.h
+1745280783 z:\my drive\projetos\p1-eda2-full\p1-eda2\aux_p1.h
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
@@ -99,15 +97,18 @@
 	<math.h>
 	"algoritmos.h"
 
-1745224236 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\algoritmos.h
+1745285192 z:\my drive\projetos\p1-eda2-full\p1-eda2\algoritmos.h
 
-1745224314 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\main.c
+1745283567 source:z:\my drive\projetos\p1-eda2-full\p1-eda2\aux_p1.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<conio.h>
+	<sys/time.h>
 	"aux_p1.h"
-	"testes.h"
 
-1745224470 c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\testes.h
-
-1745224296 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\testes.c
+1745283190 source:z:\my drive\projetos\p1-eda2-full\p1-eda2\testes.c
 	"algoritmos.h"
 	<stdio.h>
 	<stdlib.h>
@@ -115,10 +116,9 @@
 	<sys/time.h>
 	"aux_p1.h"
 
-1745224217 source:c:\projetos\ifsp\terceirosemestre\estruturasdedados02-ifsp\p1-eda2\algoritmos.c
-	<stdio.h>
-	<stdlib.h>
-	<time.h>
-	<sys/time.h>
+1745283143 source:z:\my drive\projetos\p1-eda2-full\p1-eda2\main.c
 	"aux_p1.h"
+	"testes.h"
+
+1745283179 z:\my drive\projetos\p1-eda2-full\p1-eda2\testes.h
 

@@ -6,13 +6,13 @@
 #include "aux_p1.h"
 
 // BUBBLE SORT
-void bubbleSortTeste(unsigned long int *lista, unsigned long int tamanho) {
-    double tempo_medio = 0, tempo_LC, tempo_LD = 0;
+void bubbleSortTeste(int *lista, int tamanho) {
+    double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
-    // CASO MÉDIO: LISTAS ALEATÓRIAS
+    // CASO MÉDIO: LISTAS ALEATÓRIA
     printf("\n\n   [");
-    for(int i=0; i<10; i++) {
+    for(int i = 0; i < 10; i++){
         lista = listaAleatoria(tamanho);
         gettimeofday(&tempo_inicio, NULL);
         bubbleSort(lista, tamanho);
@@ -230,6 +230,46 @@ void radixSortTeste(int *lista, int tamanho) {
 
 
 // BUCKET SORT
+void bucketSortTeste(int *lista, int tamanho) {
+    double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
+    struct timeval tempo_inicio, tempo_fim;
+
+    // CASO MÉDIO: LISTAS ALEATÓRIA
+    printf("\n\n   [");
+    for(int i = 0; i < 10; i++){
+        lista = listaAleatoria(tamanho);
+        gettimeofday(&tempo_inicio, NULL);
+        bucketSort(lista, tamanho);
+        gettimeofday(&tempo_fim, NULL);
+        tempo_medio = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+            (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0) + tempo_medio;
+        free(lista);
+        printf("====");
+    }
+    tempo_medio = tempo_medio / 10;
+
+    // CASO: LISTA CRESCENTE
+    lista = listaCrescente(tamanho);
+    gettimeofday(&tempo_inicio, NULL);
+    bucketSort(lista, tamanho);
+    gettimeofday(&tempo_fim, NULL);
+    tempo_LC = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
+    free(lista);
+    printf("===");
+
+    // CASO: LISTA DECRESCENTE
+    lista = listaDecrescente(tamanho);
+    gettimeofday(&tempo_inicio, NULL);
+    bucketSort(lista, tamanho);
+    gettimeofday(&tempo_fim, NULL);
+    tempo_LD = (tempo_fim.tv_sec + tempo_fim.tv_usec/1000000.0) -
+        (tempo_inicio.tv_sec + tempo_inicio.tv_usec/1000000.0);
+    free(lista);
+    printf("===]\n");
+
+    resultadoTestes(tempo_medio, tempo_LC, tempo_LD, tamanho);
+}
 
 
 // SHELL SORT
@@ -416,7 +456,7 @@ void heapSortTeste(int *lista, int tamanho) {
 
 // TIM SORT
 void timSortTeste(int *lista, int tamanho) {
-    double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
+        double tempo_medio = 0, tempo_LC = 0, tempo_LD = 0;
     struct timeval tempo_inicio, tempo_fim;
 
     // CASO MÉDIO: LISTAS ALEATÓRIA
@@ -456,4 +496,27 @@ void timSortTeste(int *lista, int tamanho) {
     resultadoTestes(tempo_medio, tempo_LC, tempo_LD, tamanho);
 }
 
+// FLUXO DOS TESTES
+//  void nomeDoAlgoritmoTeste(int *lista, int tamanho){
+//      1 - Teste com a lista aleatória (MÉDIA) (Testar 10 vezes)
+//        { a - Cria a lista aleatória
+//          b - Inicia o temporizador
+//          c - Inicia a ordenação do vetor
+//          d - Registra o tempo da ordenação e libera a lista com o Free } x10
+//      2 - Feito os 10 testes da lista aleatória, tirar a média dos resultados e registra em uma variavel
+//
+//      3 - Agora faz o teste com a lista crescente (MELHOR CASO)
+//          a - Cria a lista crescente
+//          b - Inicia o temporizador
+//          c - Inicia a ordenação do vetor
+//          d - Registra o tempo da ordenação e libera a lista com o Free
+//
+//      4 - Agora faz o teste com a lista decrescente (PIOR CASO)
+//          a - Cria a lista crescente
+//          b - Inicia o temporizador
+//          c - Inicia a ordenação do vetor
+//          d - Registra o tempo da ordenação e libera a lista com o Free
+//
+//      5 - Chama uma rotina para imprimir o resultado dos 3 testes (Média, pior e melhor caso)
+//  }
 

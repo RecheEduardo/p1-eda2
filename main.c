@@ -2,7 +2,7 @@
 #include "testes.h"
 int main()
 {
-    int *lista;
+    int *lista = NULL;
     int algoritmo;
     int tamanho;
 
@@ -80,7 +80,7 @@ int main()
                 system("cls");
                 printf("\n#####################################################");
                 printf("\n========= Algoritmo selecionado: BUCKET SORT ========");
-                // nomeDoAlgoritmoTeste(lista, tamanho);
+                bucketSortTeste(lista, tamanho);
                 break;
 
             case 9: // RADIX SORT (LSD)

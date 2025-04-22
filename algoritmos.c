@@ -5,7 +5,7 @@
 #include "aux_p1.h"
 
 // 01 - BUBBLE SORT
-void bubbleSort(unsigned long int *v, unsigned long int n){
+void bubbleSort(int *v, int n){
     int continua, aux, fim = n;
     do{
         continua = 0;
@@ -177,53 +177,78 @@ void radixSort(int *arr, int n, int radix) {
 
 
 // 06 - BUCKET SORT
-#define NUM_BUCKETS 10  // Define o número de baldes
-#define MAX_SIZE 10     // Define o tamanho do vetor de entrada
+#define NUM_BUCKETS 10
 
 // Estrutura do balde
 typedef struct {
-    int *valor;  // Ponteiro para armazenar os valores do balde
-    int tamanho;   // Quantidade de elementos armazenados no balde
+    int *valor;
+    int tamanho;
+    int capacidade;
 } Balde;
 
-// Função para organizar os itens do balde
-void insertionSortBucket(int *array, int tamanho) {
+// Função de ordenação (Insertion Sort)
+void insertionSortBS(int *arr, int tamanho) {
     for (int i = 1; i < tamanho; i++) {
-        int chave = array[i];  // Chave = Elemento atual a ser ordenado
+        int chave = arr[i];
         int j = i - 1;
-
-        // Move os elementos maiores que a Chave uma posição à frente
-        while (j >= 0 && array[j] > chave) {
-            array[j + 1] = array[j];
+        while (j >= 0 && arr[j] > chave) {
+            arr[j + 1] = arr[j];
             j--;
         }
-        array[j + 1] = chave; // Insere o elemento na posição correta
+        arr[j + 1] = chave;
     }
 }
 
+// Função principal do Bucket Sort
 void bucketSort(int *vetor, int tamanho) {
-    Balde balde[NUM_BUCKETS]; // Declara um array de baldes
+    if (tamanho <= 0) return;
 
-    // Inicializa os baldes
-    for (int i = 0; i < NUM_BUCKETS; i++) {
-        balde[i].valor = (int *)malloc(MAX_SIZE * sizeof(int)); // Aloca memória para os valores
-        balde[i].tamanho = 0; // Inicializa o tamanho do balde como zero
+    // Encontrar valor mínimo e máximo do vetor
+    int min = vetor[0], max = vetor[0];
+    for (int i = 1; i < tamanho; i++) {
+        if (vetor[i] < min) min = vetor[i];
+        if (vetor[i] > max) max = vetor[i];
     }
 
-    // Separa os elementos do vetor nos baldes apropriados
-    for (int i = 0; i < tamanho; i++) {
-        int indice = vetor[i] / NUM_BUCKETS; // Determina em qual balde o número pertence
-        balde[indice].valor[balde[indice].tamanho++] = vetor[i]; // Adiciona o número ao balde
-    }
-
-    // Reconstruindo o vetor com os valores ordenados
-    int index = 0; // Índice do vetor
+    // Inicializar baldes
+    Balde baldes[NUM_BUCKETS];
     for (int i = 0; i < NUM_BUCKETS; i++) {
-        insertionSortBucket(balde[i].valor, balde[i].tamanho); // Ordena os elementos do balde
-        for (int j = 0; j < balde[i].tamanho; j++) {
-            vetor[index++] = balde[i].valor[j]; // Passa os elementos ordenados para o vetor original
+        baldes[i].capacidade = 5;  // capacidade inicial
+        baldes[i].tamanho = 0;
+        baldes[i].valor = (int *)malloc(baldes[i].capacidade * sizeof(int));
+        if (baldes[i].valor == NULL) {
+            fprintf(stderr, "Erro ao alocar memória para baldes\n");
+            exit(1);
         }
-        free(balde[i].valor); // Libera a memória alocada para o valor do balde
+    }
+
+    // Distribuir elementos nos baldes
+    for (int i = 0; i < tamanho; i++) {
+        int indice = (int)(((long long)(vetor[i] - min) * NUM_BUCKETS) / (max - min + 1));
+        if (indice >= NUM_BUCKETS) indice = NUM_BUCKETS - 1;
+
+        // Redimensionar se necessário
+        if (baldes[indice].tamanho >= baldes[indice].capacidade) {
+            baldes[indice].capacidade *= 2;
+            int *novo = (int *)realloc(baldes[indice].valor, baldes[indice].capacidade * sizeof(int));
+            if (novo == NULL) {
+                fprintf(stderr, "Erro ao realocar memória para balde\n");
+                exit(1);
+            }
+            baldes[indice].valor = novo;
+        }
+
+        baldes[indice].valor[baldes[indice].tamanho++] = vetor[i];
+    }
+
+    // Ordenar cada balde e reconstruir o vetor
+    int index = 0;
+    for (int i = 0; i < NUM_BUCKETS; i++) {
+        insertionSort(baldes[i].valor, baldes[i].tamanho);
+        for (int j = 0; j < baldes[i].tamanho; j++) {
+            vetor[index++] = baldes[i].valor[j];
+        }
+        free(baldes[i].valor);
     }
 }
 
@@ -258,7 +283,7 @@ void shellSort(int *arr, int tam) { // Shell sort, uma variação do Insertion sor
 
 
 // 08 - MERGE SORT
-void merge(int *v, int inicio, int meio, int fim){
+void mergeMS(int *v, int inicio, int meio, int fim){
     int *temp, p1, p2, tamanho,i ,j, k;
     int fim1 = 0, fim2 = 0;
     tamanho = fim - inicio + 1; //tamanho do novo vetor
@@ -305,7 +330,7 @@ void mergeSort(int *v, int inicio, int fim){
         meio = (inicio + fim) / 2;
         mergeSort(v, inicio, meio);
         mergeSort(v, meio+1, fim);
-        merge(v, inicio, meio, fim);
+        mergeMS(v, inicio, meio, fim);
     }
 }
 
@@ -319,7 +344,7 @@ void troca(int *a,int *b) { // Função para trocar dois elementos no array
 }
 
 // Função que realiza a partição do array e retorna o índice do pivô
-int divisao(int arr[], int low,int high) {
+int divisao(int *arr, int low, int high) {
     int pivot = arr[high];  // Escolhe o último elemento como pivô
     int i = (low - 1); // Índice do menor elemento
 
@@ -334,7 +359,7 @@ int divisao(int arr[], int low,int high) {
 }
 
 // Implementação recursiva do QuickSort
-void quickSort(int arr[],int low, int high) {
+void quickSort(int *arr,int low, int high) {
     if (low < high) {
         int pi = divisao(arr, low, high); // Encontra o índice do pivô
 
@@ -346,14 +371,14 @@ void quickSort(int arr[],int low, int high) {
 
 
 // 10 - HEAP SORT
-void swap(int *a, int *b) {
+void swapHS(int *a, int *b) {
     int temp = *a;
     *a = *b;
     *b = temp;
 }
 
 // Função para criar um Max-Heap
-void maxHeapify(int arr[], int n, int i) {
+void maxHeapify(int *arr, int n, int i) {
     int largest = i; // Inicializa o maior como o nó
     int left = 2 * i + 1;
     int right = 2 * i + 2;
@@ -365,13 +390,13 @@ void maxHeapify(int arr[], int n, int i) {
         largest = right;
 
     if (largest != i) {
-        swap(&arr[i], &arr[largest]);
+        swapHS(&arr[i], &arr[largest]);
         maxHeapify(arr, n, largest);
     }
 }
 
 // Função para criar um Min-Heap
-void minHeapify(int arr[], int n, int i) {
+void minHeapify(int *arr, int n, int i) {
     int smallest = i;
     int left = 2 * i + 1;
     int right = 2 * i + 2;
@@ -383,29 +408,29 @@ void minHeapify(int arr[], int n, int i) {
         smallest = right;
 
     if (smallest != i) {
-        swap(&arr[i], &arr[smallest]);
+        swapHS(&arr[i], &arr[smallest]);
         minHeapify(arr, n, smallest);
     }
 }
 
 // Função HeapSort usando Max-Heap (ordem crescente)
-void heapSortAscending(int arr[], int n) {
+void heapSortAscending(int *arr, int n) {
     for (int i = n / 2 - 1; i >= 0; i--)
         maxHeapify(arr, n, i);
 
     for (int i = n - 1; i > 0; i--) {
-        swap(&arr[0], &arr[i]);
+        swapHS(&arr[0], &arr[i]);
         maxHeapify(arr, i, 0);
     }
 }
 
 // Função HeapSort usando Min-Heap (ordem decrescente)
-void heapSortDescending(int arr[], int n) {
+void heapSortDescending(int *arr, int n) {
     for (int i = n / 2 - 1; i >= 0; i--)
         minHeapify(arr, n, i);
 
     for (int i = n - 1; i > 0; i--) {
-        swap(&arr[0], &arr[i]);
+        swapHS(&arr[0], &arr[i]);
         minHeapify(arr, i, 0);
     }
 }
@@ -415,67 +440,73 @@ void heapSortDescending(int arr[], int n) {
 #define RUN 32 // Definição do tamanho mínimo do bloco para o InsertionSort.
 
 int minT(int a, int b){ // Função para definir o mínimo de dois números
-    if(a < b){ // Se a for menor que B, A é retornado.
-        return a;
-    } else { // Caso contrário, B é retornado.
-        return b;
-    }
+    //if(a < b){ // Se a for menor que B, A é retornado.
+    //    return a;
+    //} else { // Caso contrário, B é retornado.
+    //    return b;
+    //}
+    return (a < b) ? a : b;
 }
 
-void insertionSortTim(int array[], int esq, int dir) { // Função para inserir o método InsertionSort
+void insertionSortTim(int *arr, int esq, int dir) { // Função para inserir o método InsertionSort
     /* A função recebe como parâmetros um array e os valores esq (esquerda) e dir (direita),
     que definem os limites da ordenação dentro do array.*/
     for (int index = esq + 1; index <= dir; index++) { // Percorre os elementos do array dentro do intervalo especificado.
         // Se o elemento atual for menor que algum dos anteriores, será reposicionado corretamente.
-        int chave = array[index]; // A chave armazena temporariamente o elemento atual do array.
+        int chave = arr[index]; // A chave armazena temporariamente o elemento atual do array.
         int x = index - 1; // x representa a posição do elemento anterior ao analisado.
-        while (x >= esq && array[x] > chave) { // Compara a chave com os elementos anteriores e move os maiores para frente.
-            array[x + 1] = array[x]; // Move o elemento maior para a posição seguinte.
+        while (x >= esq && arr[x] > chave) { // Compara a chave com os elementos anteriores e move os maiores para frente.
+            arr[x + 1] = arr[x]; // Move o elemento maior para a posição seguinte.
             x--;
         }
-        array[x + 1] = chave; // Insere a chave na posição correta dentro do subarray ordenado.
+        arr[x + 1] = chave; // Insere a chave na posição correta dentro do subarray ordenado.
     }
 }
 
-void mergeSortTim(int array[], int x, int y, int z) {
+void mergeSortTim(int *arr, int x, int y, int z) {
     /*Na linha abaixo, é definido o tamanho de cada SubArray, feito anteriormente no InsertionSort.*/
     int el1 = y - x + 1, el2 = z - y;
-    int esq[el1], dir[el2]; // É definido também, os arrays auxiliares esquerda e direita que serão integrados para formar o array original.
+    //int esq[el1], dir[el2]; // É definido também, os arrays auxiliares esquerda e direita que serão integrados para formar o array original.
     // Os elementos do array original são copiados para os arrays auxiliares, esq e dir.
+    int *esq = malloc(el1 * sizeof(int));
+    int *dir = malloc(el2 * sizeof(int));
+
     for (int i = 0; i < el1; i++) {
-        esq[i] = array[x + i];
+        esq[i] = arr[x + i];
     }
     for (int i2 = 0; i2 < el2; i2++) {
-        dir[i2] = array[y + 1 + i2];
+        dir[i2] = arr[y + 1 + i2];
     }
     int i = 0, i2 = 0, i3 = x; // Indicíes para auxiliar no percorrer de cada subArray.
     // Esta etapa combina os subArrays e ordena-os para formar o array original.
     while (i < el1 && i2 < el2) {
         if (esq[i] <= dir[i2]) {// Se o elemento da esquerda for menor ou igual ao da direita, adiciona ao array
-            array[i3] = esq[i];
+            arr[i3] = esq[i];
             i++;
         } else { // Caso contrário, adiciona o elemento da direita
-            array[i3] = dir[i2];
+            arr[i3] = dir[i2];
             i2++;
         }
         i3++;
     }
      // Copia os elementos restantes de esq[] e da dir[].
     while (i < el1) {
-        array[i3] = esq[i];
+        arr[i3] = esq[i];
         i++;
         i3++;
     }
     while (i2 < el2) {
-        array[i3] = dir[i2];
+        arr[i3] = dir[i2];
         i2++;
         i3++;
     }
+    free(esq);
+    free(dir);
 }
 
-void timSort(unsigned long int *array, unsigned long int n) { // Função que executa o método TimSort:
+void timSort(int *arr, int n) { // Função que executa o método TimSort:
     for (int i = 0; i < n; i += RUN) { // Para cada array menor, didivido pelo mergeSort, será aplicado o insertSort (ordena-los de forma crescente)
-        insertionSortTim(array, i, minT((i + RUN - 1), (n - 1)));
+        insertionSortTim(arr, i, minT((i + RUN - 1), (n - 1)));
     }
     /*Após a ordenação de cada subArray, será aplicado novamente o mergeSort(), unindo cada pequena parte de array, antes quebrada
     para uma única forma, como foi enviada a função.
@@ -488,7 +519,7 @@ void timSort(unsigned long int *array, unsigned long int n) { // Função que exec
             int meio = esq + arm - 1; // Determina o meio do array atual
             int dir = minT((esq + 2 * arm - 1), (n - 1)); // Determina o final do array atual
             if (meio < dir) { // Se existir uma run válida para mesclar, aplica MergeSort
-                mergeSortTim(array, esq, meio, dir);
+                mergeSortTim(arr, esq, meio, dir);
             }
         }
     }
